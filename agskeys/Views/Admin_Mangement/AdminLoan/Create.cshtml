@@ -1,0 +1,375 @@
+﻿@model agskeys.Models.loan_table
+
+<div class="modal-body">
+    <!-- [ breadcrumb ] start -->
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-user bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Create Loan</h5>
+                        <span>Agskeys</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- [ breadcrumb ] end -->
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-block">
+
+                                @if (TempData["AE"] != null)
+                                {
+
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        @TempData["AE"].ToString()
+                                    </div>
+
+                                }
+
+                                @using (Html.BeginForm("Create", "AdminLoan", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        @if (TempData["Message"] != null)
+                                        {
+
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                @TempData["Message"].ToString()
+                                            </div>
+
+                                        }
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.customerid, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.customerid, ViewBag.customerList as SelectList, "Please select customer id", new { @class = "form-control", required = true })
+
+                                                        @Html.ValidationMessageFor(model => model.customerid, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.bankid, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.bankid, ViewBag.bankList as SelectList, "Please select bank", new { @class = "form-control" })
+
+                                                        @Html.ValidationMessageFor(model => model.bankid, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.loantype, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.loantype, ViewBag.loantypeList as SelectList, "Please select Loan Type", new { @class = "form-control", required = true })
+
+                                                        @Html.ValidationMessageFor(model => model.loantype, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.requestloanamt, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.requestloanamt, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                                        @Html.ValidationMessageFor(model => model.requestloanamt, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.propertydocuments, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        <input type="file" name="propertyDocumentsFile" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.propertydetails, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.propertydetails, new { htmlAttributes = new { @class = "form-control" } })
+
+                                                        @Html.ValidationMessageFor(model => model.propertydetails, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="switch-field1">
+                                                    <div class="switch-title1">Send To Partners</div>
+                                                    <input type="radio" id="switch_left1" name="switch_21" value="yes" checked />
+                                                    <label for="switch_left1">No</label>
+                                                    <input type="radio" id="switch_right1" name="switch_21" value="no" />
+                                                    <label for="switch_right1">Yes</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6" id="partnerid">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.partnerid, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.partnerid, ViewBag.vendorList as SelectList, "Please select vendor", new { @class = "form-control" })
+
+                                                        @Html.ValidationMessageFor(model => model.partnerid, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="switch-field">
+                                                    <div class="switch-title">Send To Employee</div>
+                                                    <input type="radio" id="switch_left" name="switch_2" value="yes" checked />
+                                                    <label for="switch_left">No</label>
+                                                    <input type="radio" id="switch_right" name="switch_2" value="no" />
+                                                    <label for="switch_right">Yes</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6  a-div">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.employeetype, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.employeetype, ViewBag.empCategories as SelectList, "Please select Employee Type", new { @class = "form-control" })
+
+                                                        @Html.ValidationMessageFor(model => model.employeetype, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6  a-div">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.employee, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+
+                                                        @*@Html.DropDownListFor(model => model.employee, ViewBag.employees as SelectList, "Please Choose an Employee", new { @class = "form-control", disabled = "disabled" })*@
+                                                        @Html.DropDownListFor(model => model.employee, new SelectList(" "), "Please Choose an Employee", new { @class = "form-control", disabled = "disabled" })
+
+                                                        @Html.ValidationMessageFor(model => model.employee, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.internalcomment, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.internalcomment, new { htmlAttributes = new { @class = "form-control", required = true } })
+
+                                                        @Html.ValidationMessageFor(model => model.internalcomment, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.externalcomment, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.externalcomment, ViewBag.commentList as SelectList, "Please select External Comment", new { @class = "form-control", required = true })
+
+                                                        @Html.ValidationMessageFor(model => model.externalcomment, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.followupdate, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.followupdate, new { htmlAttributes = new { type = "datetime", @class = "form-control datetimepicker", required = true } })
+                                                        @Html.ValidationMessageFor(model => model.followupdate, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-12">
+                                                        <input type="submit" value="Create" class="btn btn-default" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div>
+                                    @Html.ActionLink("Back to List", "Loan")
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+<script type="text/javascript">
+    $('.datetimepicker').datetimepicker({
+        showAnim: 'slideDown',
+        dateFormat: 'dd/mm/yy',
+    });
+
+
+</script>
+<script type="text/javascript">
+
+    $(".datetimepicker").click(function (event) {
+        event.preventDefault();
+        $('.ui_tpicker_time_input').prop("disabled", false); // Element(s) are now enabled.
+    });
+
+</script>
+
+@*<script type="text/javascript">
+         $(document).ready(function () {
+             $(function () {
+                 $(".date-picker").datepicker({
+                     changeMonth: true,
+                     changeYear: true,
+                     yearRange: "-100:+0",
+                     dateFormat: 'dd-M-yy'
+                 });
+             });
+
+             jQuery.validator.methods.date = function (value, element) {
+                 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                 if (isChrome) {
+                     var d = new Date();
+                     return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                 } else {
+                     return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                 }
+             };
+         });
+
+    </script>
+    }*@
+
+<script>
+    $(document).ready(function () {
+        $("#employeetype").change(function () {
+            $.get("/Loan/GetEmployeeList", {
+                categoryId:
+                $("#employeetype").val()
+            }, function (data) {
+                $("#employee").empty();
+                $("#employee").append("<option>Please Select Employee Name</option> ");
+                $.each(data, function (create, row) {
+                    $("#employee").append("<option value='" + row.id + "'>" +
+                        row.name + "</option>")
+                    $("#employee").removeAttr("disabled");
+                });
+            });
+        })
+    });
+</script>
+
+
+<style>
+    .switch-field, .switch-field1 {
+        font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+        .switch-field input, .switch-field1 input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            width: 1px;
+            border: 0;
+            overflow: hidden;
+        }
+
+        .switch-field label, .switch-field1 label {
+            float: left;
+        }
+
+        .switch-field label, .switch-field1 label {
+            display: inline-block;
+            width: 60px;
+            background-color: #e4e4e4;
+            color: #000;
+            font-size: 14px;
+            font-weight: normal;
+            text-align: center;
+            text-shadow: none;
+            padding: 6px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -o-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+            background: #fff;
+        }
+
+            .switch-field label:hover {
+                cursor: pointer;
+            }
+
+            .switch-field1 label:hover {
+                cursor: pointer;
+            }
+
+        .switch-field input:checked + label, .switch-field1 input:checked + label {
+            color: #fff;
+            background-color: #4099FF;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .switch-field label:first-of-type, .switch-field1 label:first-of-type {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .switch-field label:last-of-type, .switch-field1 label:last-of-type {
+            border-radius: 0 4px 4px 0;
+        }
+</style>
+<script>
+    $('.a-div').hide();
+    $('#switch_right').click(function () {
+        $('.a-div').show(500);
+    });
+    $('#switch_left').click(function () {
+        if ($('.a-div').is(":visible"))
+            $('.a-div').hide(500);
+    });
+</script>
+<script>
+    $('#partnerid').hide();
+    $('#switch_right1').click(function () {
+        $('#partnerid').show(500);
+
+    });
+    $('#switch_left1').click(function () {
+        if ($('#partnerid').is(":visible"))
+            $('#partnerid').hide(500);
+    });
+</script>
+
+
+

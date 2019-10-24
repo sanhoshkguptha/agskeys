@@ -1,0 +1,138 @@
+﻿@model agskeys.Models.RequestLoan
+
+@{
+    ViewBag.Title = "RequestLoan";
+    Layout = "~/Views/Shared/_MobileClienteleLayout.cshtml";
+}
+
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8 ">Request Loan</p>
+                    <a class="col-sm-2 col-xs-2 " onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="L1 main-page" id="L-body" style="min-height: 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <!-- Basic Form Inputs card start -->
+                <div class="card">
+                    <div class="card-block">
+
+                        @if (TempData["AE"] != null)
+                        {
+
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                @TempData["AE"].ToString()
+                            </div>
+
+                        }
+
+                        @using (Html.BeginForm("RequestLoan", "MobileClienttele", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="form-horizontal">
+                                        @if (TempData["Message"] != null)
+                                        {
+
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                @TempData["Message"].ToString()
+                                            </div>
+
+                                        }
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.name, (string)ViewBag.name, new { htmlAttributes = new { @class = "form-control formenquiry" } })
+                                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control formenquiry" } })
+                                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.phoneno, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.phoneno, new { htmlAttributes = new { @class = "form-control formenquiry" } })
+                                                        @Html.ValidationMessageFor(model => model.phoneno, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.loantype, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownListFor(model => model.loantype, ViewBag.loantypeList as SelectList, "Please select Loan Type", new { @class = "form-control formenquiry" })
+
+                                                        @Html.ValidationMessageFor(model => model.loantype, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.requestloanamt, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.requestloanamt, new { htmlAttributes = new { @class = "form-control formenquiry" } })
+                                                        @Html.ValidationMessageFor(model => model.requestloanamt, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.internalcomment, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.internalcomment, new { htmlAttributes = new { @class = "form-control formenquiry" } })
+                                                        @Html.ValidationMessageFor(model => model.internalcomment, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-12">
+                                                        <input type="submit" value="Create" class="btn btn-default" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

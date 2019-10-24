@@ -1,0 +1,118 @@
+﻿@model agskeys.Models.customer_profile_table
+
+<div class="modal-body">
+    <!-- [ breadcrumb ] start -->
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-4">
+            <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <!-- [ breadcrumb ] end -->
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-block ">
+
+                                <div class="row" >
+                                    <div class="col-sm-6 col-md-6">
+                                        <center style="padding-bottom:30px;">
+                                            @{if (Model.profileimg != null)
+                                                {
+
+                                                    if (System.IO.File.Exists(Server.MapPath(Model.profileimg)) == true)
+                                                    {
+
+                                                        <img class="rounded" width="150" height="150" src="@Url.Content(Model.profileimg)" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <img class="rounded" width="150" height="150" src="@Url.Content("~/adminimage/dummy.jpg")" alt="This is Default Image" title="This is Default Image Title" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    @*<img src="@Url.Content(item.photo)" width="50" height="50" />*@
+                                                    @Html.DisplayFor(model => model.profileimg)
+                                                    <img class="rounded" width="150" height="150" src="@Url.Content("~/adminimage/dummy.jpg")" alt="This is Default Image" title="This is Default Image Title" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                                                }
+
+                                            }
+                                            <div class="form-group prf row">
+                                                <label class="col-sm-12 col-form-label">@Html.DisplayFor(model => model.customerid)<span> ( Customer Id ) </span></label>
+                                            </div>
+                                            <div class="form-group prf row">
+                                                <label class="col-sm-12 col-form-label">@Html.DisplayFor(model => model.name)</label>
+                                            </div>
+                                            <div class="form-group  row">
+                                                <label class="col-sm-12 col-form-label">@Html.DisplayFor(model => model.phoneno)</label>
+                                            </div>
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <h4 style="margin-bottom:25px;">Additional Information</h4>
+                                        <table class="table">
+                                            <tr>
+                                                <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.email)</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-user" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.name)<span> ( username ) </span></td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-phone-square" aria-hidden="true"></i></th>
+                                                <td>
+                                                    @{if (Model.alterphoneno == null)
+                                                        {
+                                                            Model.alterphoneno = "Not Updated";
+                                                        }
+                                                    }
+                                                    @Html.DisplayFor(model => model.alterphoneno)
+                                                </td>
+                                            </tr>
+
+                                            @if (!string.IsNullOrEmpty(Model.dob))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                                                    <td>@Html.DisplayFor(model => model.dob)<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.dob) )</span></td>
+
+                                                </tr>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(Model.address))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-address-card" aria-hidden="true"></i></th>
+                                                    <td>@Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", @readonly = true, @style = "background-color:#FFF;" } })</td>
+
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

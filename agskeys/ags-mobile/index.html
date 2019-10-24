@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+	<head>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AGS</title>
+		<!-- <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">	
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">			
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>	   -->
+		
+		    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min1.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudfla	re.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+
+
+    <!-- Custom Theme Style -->
+    <link href="build/css/customeLogin.css" rel="stylesheet">
+	  	</head>
+	<body>
+		<div class="L1">
+			<!-- <img src="images/bg.jpg"> -->
+			<div class="container">
+				<div class="row">
+				<br>
+				<div class="col-sm-12 col-xs-12 ">
+					<!-- <button type="submit" name="btn-login" id="btn-login"  onclick="javascript:window.location='index.html';" class="btn btn-default bk"><i class="fa fa-arrow-left"></i></button> -->
+				</div>
+				<!-- <div class="col-sm-4"></div> -->
+					<div class="col-sm-12 col-xs-12 L11">
+					<!-- <img src="images/bg1red.jpg" class="img-responsive"> -->
+						
+						<form class="form-horizontal f1" id="login-form" action="customer.html" method="POST">
+							<h2><img src="images/keys.png"></h2>
+							<div class="form-group">
+								<div class="col-sm-12 col-xs-12 ">
+									<!-- <i class="fa fa-user" aria-hidden="true"></i> --><label class="lbl">USERNAME</label>
+								</div>
+							
+								<div class="col-sm-12 col-xs-12 gly">
+									<!-- <i class="fa fa-user" aria-hidden="true"></i> --><input type="email" class="fc1 pd1" id="user_email"  name="user_email" required>
+								</div>
+							
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 col-xs-12 ">
+									<!-- <i class="fa fa-lock" aria-hidden="true"></i> --><label class="lbl">PASSWORD</label>
+								</div>
+						
+								<div class="col-sm-12 col-xs-12 gly">
+									<!-- <i class="fa fa-lock" aria-hidden="true"></i> --><input type="password" class="fc1 pd2" id="password"  name="password" required>	
+								</div>
+							
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 col-xs-12 gly utype">
+									<select name="u_type" class="form-control" style="height: 44px;border-radius: 3px;border-color: #333c4a;color: #9a9a9a;" required="">
+										<option value="">Select user type</option>
+										<option value="vendors">Vendors</option>
+										<option value="customer">Customers</option>
+						
+										<!--<option value="Student">Student</option>-->
+									</select> 
+								</div>
+							</div>
+									  <!--	<div class="form-group">      
+								<div class="col-sm-1">
+									
+								</div>				
+								<div class=" col-sm-10">
+									<div class="checkbox">
+										<label><input type="checkbox" name="remember_me" id="remember_me"> Remember me</label>
+										</div>
+								</div>
+								<div class="col-sm-1">
+									
+								</div>
+							</div> -->
+							<div class="form-group">
+						
+								<div class="col-sm-12 col-xs-12">
+									<button type="submit" name="btn-login" id="btn-login" value="Login"  class="btn btn-default">LOGIN</button>
+								</div>
+							
+							</div>
+							<div class="form-group">
+								 
+								<a href=""><label class="control-label col-sm-12 col-xs-12" for="name" style="text-align: center; color:black;">Forget password</label></a>
+								
+							</div>
+						</form>
+					</div>
+					<!-- <div class="col-sm-4"></div> -->
+				</div>
+			</div>
+		</div>	
+		  <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+	
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
+		
+	</body>
+</html>

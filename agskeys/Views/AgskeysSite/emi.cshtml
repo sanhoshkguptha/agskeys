@@ -1,0 +1,224 @@
+﻿@{
+    Layout = "~/Views/Shared/_FrontendLayout.cshtml";
+}
+
+        <!-- subheader -->
+        <section id="subheader" class="subheaderb" data-speed="8" data-type="background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>EMI CALCULATOR</h1>
+                        <ul class="crumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="sep">/</li>
+                            <li>EMI CALCULATOR</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subheader close -->
+        <section id="headservice" style="padding: 90px 0 90px 0;">
+            <div class="container">
+                <div class="row mar-top-1">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="emi-para">EMI Calculation</p>
+                                <p class="emi-para-1">Equated Monthly Installment – EMI for short – is the amount payable every month to the bank or any other financial institution until the loan amount is fully paid off. It consists of the interest on loan as well as part of the principal amount to be repaid. The sum of principal amount and interest is divided by the tenure, i.e., number of months, in which the loan has to be repaid. This amount has to be paid monthly. The interest component of the EMI would be larger during the initial months and gradually reduce with each payment. The exact percentage allocated towards payment of the principal depends on the interest rate. Even though your monthly EMI payment won’t change, the proportion of principal and interest components will change with time. With each successive payment, you’ll pay more towards the principal and less in interest.</p>
+
+                            </div>
+                            <div class="col-md-6 emi-bg-image">
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subheader -->
+        <section id="book-consultation " class="" style="padding: 0px 0 0px 0;">
+            <div class="book-consultation  " style="background-color: #eff3f8 !important;">
+                <div class="page-header mar-top-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="bg-white pinside30">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-9 col-sm-12 col-12">
+                                            <h1 class="page-title">EMI Calculator</h1>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-8 col-md-3 col-sm-12 col-12">
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="btn-action"> <a href="~/AgskeysSite/contact_us" class="btn btn-default">Contact Us</a> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="sub-nav" id="sub-nav">
+                                <ul class="nav nav-justified">
+                                    <li class="nav-item">
+                                        <a href="contact-us.html" class="nav-link">Give me call back</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Emi Caculator</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content start -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="wrapper-content bg-white pinside40">
+                                <div class="loan-eligibility-block block-2">
+                                    <div class="row">
+                                        <div class="col-md-6 ">
+                                            <p class="emi-header emi-header-text zoomIn " style="letter-spacing: 2px;font-weight: 700;font-size: 22px;">EMI Calculation</p>
+                                            <p class=" emi-header-para">Enter the amount you wish to borrow along with the interest rate and tenure to determine your EMI. You can also change the start date for the EMI payment schedule. Interest rates offered by different banks may vary and you will be able to quickly determine your monthly payment under all scenarios.</p>
+                                        </div>
+                                        <div class="col-md-6">                                           
+                                            <div class="col-md-12" style="padding-left: 67px;">
+                                                <div class="row">
+                                                    <label class="emi-label">Loan Amount:</label><br>
+                                                    <input class="txt-box" type="text" name="aa" onkeyup="checnum(this)" >
+                                                </div>
+                                                <div  class="row">
+                                                    <label class="emi-label">Interest Rates:</label><br>
+                                                    <input class="txt-box" type="text" name="bb" onkeyup="checnum(this)" >
+                                                </div>
+                                                <div  class="row">
+                                                    <label class="emi-label">Term(Years):</label><br>
+                                                    <input class="txt-box" type="text" name="cc" onkeyup="checnum(this)" >
+                                                </div>
+                                                <div class="emi-btn-div row">
+                                                    <button name="ss" value="" onclick="loan()" class="emi-btn">CALCULATE</button>
+                                                </div>
+                                                <div  class="row">
+                                                    <label class="emi-label">Monthly Payment(EMI):</label><br>
+                                                    <input class="txt-box" type="text" name="r1"   readonly >
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+   
+    <!-- /.content end -->
+
+    <!-- footer begin -->
+   <footer>
+    <div class="footer-class-1">
+        <div class="row">
+            <div class="col-md-8">
+                <div style="padding-bottom:10px;float:left; padding-left:10px;"><span>©&nbsp;</span><span class="copyright-year">@DateTime.Now.Year</span><span>&nbsp;</span><a href="http://www.agskeys.com/" target="_blank">www.agskeys.com</a>. All Rights Reserved.<p></p></div>
+            </div>
+            <div class="col-md-4">
+                <a href="http://techvegas.in" target="_blank">Developed By Techvegas LLP</a>
+            </div>
+        </div>
+
+        <!--  <p>Developed by Techvegas LLP</p>  -->
+    </div>
+</footer>
+@*<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $('#ticker').tickerme({
+    //        interval: 10000
+    //    });
+    //    $('.carousel').carousel({
+    //        interval: 8000
+    //    });
+    //    $("#myModal").on("hidden.bs.modal", function () {
+    //        $(this).removeData('bs.modal');
+    //    });
+    //});
+    function checnum(as) {
+
+        var dd = as.value;
+
+        if (isNaN(dd)) {
+
+            dd = dd.substring(0, (dd.length - 1));
+
+            as.value = dd;
+
+        }
+
+    }
+
+    function loan() {
+
+        var a = document.first.aa.value;
+
+        var b = document.first.bb.value;
+
+        var c = document.first.cc.value;
+
+        var n = c * 12;
+
+        var r = b / (12 * 100);
+
+        var p = (a * r * Math.pow((1 + r), n)) / (Math.pow((1 + r), n) - 1);
+
+        var prin = Math.round(p * 100) / 100;
+
+        document.first.r1.value = prin;
+
+        var mon = Math.round(((n * prin) - a) * 100) / 100;
+
+        /*document.first.r2.value = mon;
+
+        var tot = Math.round((mon/n)*100)/100;
+
+        document.first.r3.value = tot;*/
+
+        for (var i = 0; i < n; i++) {
+
+            var z = a * r * 1;
+
+            var q = Math.round(z * 100) / 100;
+
+            var t = p - z;
+
+            var w = Math.round(t * 100) / 100;
+
+            var e = a - t;
+
+            var l = Math.round(e * 100) / 100;
+
+            a = e;
+
+        }
+
+    }
+</script>*@
+    <!-- footer close -->
+    </div>
+   
+
+
+
+
+
+ 

@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = "";
+}
+<html lang="en">
+@model agskeys.Models.admin_table
+<head>
+    <title>Agskeys</title>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon icon
+
+    <link rel="icon" href="https://colorlib.com//polygon/admindek/~/files/assets/images/favicon.ico" type="image/x-icon"> -->
+    <!-- Google font-->
+   
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/files/bower_components/bootstrap/css/bootstrap.min.css">
+    <!-- waves.css -->
+    <link rel="stylesheet" href="~/files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"><!-- feather icon -->
+    <link rel="stylesheet" type="text/css" href="~/files/assets/icon/feather/css/feather.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="~/files/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/files/assets/icon/icofont/css/icofont.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="~/files/assets/icon/font-awesome/css/font-awesome.min.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="~/files/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/files/assets/css/pages.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        body {
+            /*background-image: url("~/files/assets/images/bg.jpg");*/
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body background="~/files/assets/images/bg.jpg" style="background-repeat:no-repeat; background-size:cover">
+    <!-- Pre-loader start -->
+    <!-- Pre-loader end -->
+    <section class="login-block">
+        <!-- Container-fluid starts -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12" style="min-height:100vh;">
+                    <!-- Authentication card start -->
+                    <form class="form-horizontal f1" id="login-form" method="post" action="@Url.Content("/Account/Login/")">
+                        <div class="text-center" style="margin-top:10%;">
+                            <img src="~/files/assets/images/logo1.png" alt="logo.png">
+                        </div>
+                        <div class="auth-box card">
+                            <div class="card-block">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class="text-center txt-primary">Sign In</h3>
+                                    </div>
+                                </div>
+                                @if (TempData["Message"] != null)
+                                {
+
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        @TempData["Message"].ToString()
+                                    </div>
+
+                                }
+                                @if (TempData["logAgain"] != null)
+                                {
+
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        @TempData["logAgain"].ToString()
+                                    </div>
+
+                                }
+                                <div class="form-group form-primary">
+                                    <label class="float-label">Username</label>
+                                    <input type="text" id="userName" name="userName" class="form-control" placeholder="user name" required="required" autofocus="autofocus">
+                                    <span class="form-bar"></span>
+                                    
+                                </div>
+                                <div class="form-group form-primary">
+
+                                    <label class="float-label">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
+                                    <span class="form-bar"></span>
+                                </div>
+                                <div class="form-group form-primary">
+                                  
+                                    <label class="float-label">User Type</label>
+                                    @Html.DropDownListFor(model => model.userrole, ViewBag.categorylist as SelectList, "Please select user category", new { @class = "form-control" })
+                                    @*<select id="userlevel" name="userlevel" class="form-control" required="required">
+                                        <option value="" selected>Select</option>
+                                        <option value="1">Super Admin</option>
+                                        <option value="2">Admin</option>
+                                    </select>*@
+                                    @Html.ValidationMessageFor(model => model.userrole, "", new { @class = "text-danger" })
+                                    <span class="form-bar"></span>
+                                </div>
+                                <div class="row m-t-25 text-left">
+                                    <div class="col-12">
+                                        <div class="forgot-phone ">                                           
+                                            <a href="~/Account/ForgotPassword" class="text-right f-w-600"> Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <button type="submit" value="Login" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" style="background-color: #d91f27; border-color: white;">LOGIN</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="text-align:center; margin-left:10px; margin-right:10px;"><i class="far fa-copyright"></i><span style="color:#808080"> 2019 - 2020</span> Softmagic.in. <span style="color:#808080">All Rights Reserved</span> </p>
+                        </div>
+                    </form>
+                </div>
+
+                @*<div class="col-sm-6">
+
+                </div>*@
+                <!-- Authentication card end -->
+                <div style="text-align:center">
+                   
+                </div>
+            </div>
+            <!-- end of col-sm-12 -->
+        </div>
+        <!-- end of row -->
+        
+        <!-- end of container-fluid -->
+    </section>
+   
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="~/files/bower_components/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/files/bower_components/popper.js/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/files/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <!-- waves js -->
+    <script src="~/files/assets/pages/waves/js/waves.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="~/files/bower_components/modernizr/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/files/bower_components/modernizr/js/css-scrollbars.js"></script>
+    <script type="text/javascript" src="~/files/assets/js/common-pages.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('focus', ':input', function () {
+                $(this).attr('autocomplete', 'off');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ProcessExecutiveLayout.cshtml";
+}
+<!-- [ breadcrumb ] start -->
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Dashboard Manager</h5>
+                    <span>Agskeys</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="#"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard Manager</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <!-- [ page content ] start -->
+                <div class="row">
+                    <!-- product profit start -->
+                    <div class="col-md-4">
+                        <div class="col-xl-12 col-md-12">
+                            <div class="card prod-p-card card-red">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Assigned Loans</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">@ViewData["assignedLoanCount"]</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-users text-c-red f-18"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12">
+                            <div class="card prod-p-card card-blue">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Total Customers</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white">@ViewData["customer_loans"]</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-users text-c-red f-18"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="col-md-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Pie Chart</h5>
+                                </div>
+                                <div class="card-block">
+                                    <div id="chart3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                </div>
+                <!-- [ page content ] end -->
+            </div>
+        </div>
+        <div id="styleSelector">
+        </div>
+    </div>
+</div>
+
+
+
+

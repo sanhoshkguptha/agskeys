@@ -1,0 +1,128 @@
+﻿@model agskeys.Models.customer_profile_table
+@{
+    ViewBag.Title = "Loan";
+    Layout = "~/Views/Shared/_MobileClienteleLayout.cshtml";
+}
+
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8 ">Enquiry</p>
+                    <a class="col-sm-2 col-xs-2 " onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="L1 main-page" id="L-body" style="min-height: 100%;">
+    <div class="container">
+        <div class="row " id="sec">
+
+            <!-- profile-->
+            <!-- <div class="col-sm-12 col-xs-12 disp-name">
+                 <img src="images/newyork.jpg" class="img-circle" alt="Cinque Terre"  align="middle" width="104px" height="104px" style="margin-top: 20px;">
+            </div>
+            <div class="col-sm-12 col-xs-12 disp-name">
+                    <p>Customer Name</p>
+            </div> -->
+            <!-- profile end-->
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                @*<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>*@
+                <div class="card">
+                    <div class="card-body">
+                        <form id="main" method="post" action="@Url.Content("/MobileClientele/SendEnquiry/")">
+                            @if (TempData["customerSuccessMsg"] != null)
+                            {
+
+                                <div class="alert alert-success alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    @TempData["customerSuccessMsg"].ToString()
+                                </div>
+
+                            }
+                            @if (TempData["customerFailedMsg"] != null)
+                            {
+
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    @TempData["customerFailedMsg"].ToString()
+                                </div>
+
+                            }
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control formenquiry" name="name" id="name" placeholder="Text Input Validation" value="@Model.name">
+                                    <span class="messages"></span>
+                                </div>
+                            </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control formenquiry" id="email" name="email" placeholder="Enter valid e-mail address" value="@Model.email">
+                                        <span class="messages"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Mobile</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control formenquiry" name="mobile" id="mobile" placeholder="Mobile Numbers Only" value="@Model.phoneno">
+                                        <span class="messages"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Message</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control formenquiry" style="height: 90px;" id="message" name="message" placeholder="Message"></textarea>
+                                        <span class="messages"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2"></label>
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary m-b-0">Submit</button>
+                                    </div>
+                                </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <!-- Basic Inputs Validation end -->
+            </div>
+        </div>
+        </div>
+
+
+
+    </div>

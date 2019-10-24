@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGS</title>
+
+    <!-- Bootstrap -->
+    <link href="~/ags-mobile/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome -->
+    <link href="~/ags-mobile/vendors/font-awesome/css/font-awesome.min1.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="~/ags-mobile/build/css/customeLogin.css" rel="stylesheet">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" style="display:block;" onclick="closeNav()"><i class="fa fa-angle-left" style="font-size:22px; padding-right: 10px;"></i> back</a>
+        @*<a class="@(ViewContext.RouteData.Values["Action"].ToString() == "Customer" ? "active" : "")" href="~/MobileManager/Customer"><i class="fa fa-bank"></i><span>CUSTOMER</span></a>*@
+        <a class="@(ViewContext.RouteData.Values["Action"].ToString() == "managerloan" ? "active" : "")" href="~/MobileManagerLoan/managerloan"><i class="fa fa-bank"></i><span>LOAN</span></a>
+        <a class="@(ViewContext.RouteData.Values["Action"].ToString() == "Support" ? "active" : "")" href="~/MobileManager/Support"><i class="fa fa-globe"></i><span>SUPPORT</span></a>
+    </div>
+
+    @RenderBody()
+
+    <footer>
+
+        <div class="row disp-name11" id="sec1">
+
+
+            <a href="~/MobileManagerLoan/managerloan" class="col-sm-4 col-xs-4 @(ViewContext.RouteData.Values["Action"].ToString() == "managerloan" ? "active" : "")"><i class="fa fa-home"></i><br> HOME </a>
+
+            <a href="~/MobileManager/UserProfile" class="col-sm-4 col-xs-4 @(ViewContext.RouteData.Values["Action"].ToString() == "UserProfile" ? "active" : "")"><i class="fa fa-user"></i> <br> PROFILE </a>
+
+            <a href="#" data-toggle="modal" data-target="#myModal" class="col-sm-4 col-xs-4 "><i class="fa fa-sign-out"></i> <br>LOGOUT </a>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "40%";
+
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+
+        }
+        var box = document.getElementById("L-body")
+        var box1 = document.getElementById("L1-body")
+        box.onclick = function () {
+
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        box1.onclick = function () {
+
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <!-- jQuery -->
+    <script src="~/ags-mobile/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/ags-mobile/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/ags-mobile/build/js/custom.min.js"></script>
+    @*<script>
+            if ($(".progress .progress-bar")[0]) {
+                $('.progress .progress-bar').progressbar(); // bootstrap 3
+            }
+        </script>*@
+
+    <div class="modal de fade" id="myModal1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="modelContent1">
+            </div>
+        </div>
+    </div>
+    <script>
+        function createModal(url) {
+            $('#modelContent1').load(url);
+            $('.de').modal('show');
+        }
+    </script>
+    <script src='~/ags-mobile/build/js/jQuery.Keyframes-master/dist/jquery.keyframes.min.js'></script>
+    <script>
+
+        $(document).ready(
+    function () {
+        var test1 = $('div.p1').text();
+
+            var v1 = parseFloat(test1);
+
+
+            var dv180 = 0;
+            var dv1 = 0;
+
+            dv180 = (v1 * 360) / 100;
+            if (dv180 >= 180) {
+                dv1 = dv180 - 180;
+            }
+            else {
+                dv1 = dv180;
+            }
+
+            $.keyframe.define([{
+                name: 'loading',
+                '0%': { '-webkit-transform': 'rotate(0deg)', 'transform': 'rotate(0deg)' },
+                '100%': { '-webkit-transform': 'rotate(' + dv1 + 'deg)', 'transform': 'rotate(' + dv1 + 'deg)' }
+            }]);
+
+            if (v1 >= 50)
+            {
+                $("span.pright1").children().css({ "animation": "loading-1 0.2s linear forwards 1.8s" });
+                $("span.pleft1").children().css({ "animation": "loading 3.7s linear forwards 1.8s" });
+            }
+            else if(v1 < 50)
+            {
+                $("span.pright1").children().css({ "animation": "loading 1.2s linear forwards 1.8s" });
+                $("span.pleft1").children().css({ "animation": "loading-5  linear forwards 1.8s" });
+             }
+            //else if (v1 == 0) {
+            //    $("span.pright1").children().css({ "animation": "loading 1.2s linear forwards 1.8s" });
+            //    $("span.pleft1").children().css({ "animation": "loading-5  linear forwards 1.8s" });
+            //}
+
+
+            var test2 = $('div.p2').text();
+
+
+            var v2 = parseFloat(test2);
+
+            var dv280 = 0;
+            var dv2 = 0;
+
+            dv280 = (v2 * 360) / 100;
+            if (dv280 > 180) {
+                dv2 = dv280 - 180;
+            }
+            else {
+                dv2 = dv280;
+            }
+
+
+
+            $.keyframe.define([{
+                name: 'loading12',
+                '0%': { '-webkit-transform': 'rotate(0deg)', 'transform': 'rotate(0deg)' },
+                '100%': { '-webkit-transform': 'rotate(' + dv2 + 'deg)', 'transform': 'rotate(' + dv2 + 'deg)' }
+            }]);
+
+            if (v2 >= 50)
+            {
+
+                    $("span.pright2").children().css({ "animation": "loading-1 0.2s linear forwards 1.8s" });
+                    $("span.pleft2").children().css({ "animation": "loading12 3.7s linear forwards 1.8s" });
+            }
+            else
+            {
+                    $("span.pright2").children().css({ "animation": "loading12 1.2s linear forwards 1.8s" });
+                    $("span.pleft2").children().css({ "animation": "loading-5  linear forwards 1.8s" });
+            }
+
+
+            var test3 = $('div.p3').text();
+            var v3 = parseFloat(test3);
+
+            var dv380 = 0;
+            var dv3 = 0;
+
+            dv380 = (v3 * 360) / 100;
+            if (dv380 > 180) {
+                dv3 = dv380 - 180;
+            }
+            else {
+                dv3 = dv380;
+            }
+
+
+
+            $.keyframe.define([{
+                name: 'loading13',
+                '0%': { '-webkit-transform': 'rotate(0deg)', 'transform': 'rotate(0deg)' },
+                '100%': { '-webkit-transform': 'rotate(' + dv3 + 'deg)', 'transform': 'rotate(' + dv3 + 'deg)' }
+            }]);
+
+
+
+
+            if (v3 >= 50) {
+                    $("span.pright3").children().css({ "animation": "loading-1 0.2s linear forwards 1.8s" });
+
+                    $("span.pleft3").children().css({ "animation": "loading13 3.7s linear forwards 1.8s" });
+
+
+            }
+            else {
+                    $("span.pright3").children().css({ "animation": "loading13 1.2s linear forwards 1.8s" });
+                    $("span.pleft3").children().css({ "animation": "loading-5  linear forwards 1.8s" });
+
+            }
+
+
+            var test4 = $('div.p4').text();
+
+            var v4 = parseFloat(test4);
+            var dv480 = 0;
+            var dv4 = 0;
+
+            dv480 = (v4 * 360) / 100;
+            if (dv480 > 180) {
+                dv4 = dv480 - 180;
+            }
+            else {
+                dv4 = dv480;
+            }
+
+
+
+            $.keyframe.define([{
+                name: 'loading14',
+                '0%': { '-webkit-transform': 'rotate(0deg)', 'transform': 'rotate(0deg)' },
+                '100%': { '-webkit-transform': 'rotate(' + dv4 + 'deg)', 'transform': 'rotate(' + dv4 + 'deg)' }
+            }]);
+
+            if (v4 >= 50) {
+                    $("span.pright4").children().css({ "animation": "loading-1 0.3s linear forwards 1.8s" });
+
+                    $("span.pleft4").children().css({ "animation": "loading14 3.7s linear forwards 1.8s" });
+
+
+
+            }
+            else {
+                    $("span.pright4").children().css({ "animation": "loading14 1.2s linear forwards 1.8s" });
+                    $("span.pleft4").children().css({ "animation": "loading-5  linear forwards 1.8s" });
+
+            }
+    }
+);
+
+
+
+
+
+
+    </script>
+
+
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="modelContent">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Logout</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="margin-top: -24px;">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Are you sure want to Logout
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="@Url.Content("/Account/MobileLogout/")" class="btn btn-success" role="button">Yes</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

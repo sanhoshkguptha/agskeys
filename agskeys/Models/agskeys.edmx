@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="agsfinancialsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="phoneno" Type="varchar" MaxLength="50" />
+          <Property Name="alternatephone" Type="varchar" MaxLength="50" />
+          <Property Name="dob" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="userrole" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="photo" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="assigned_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loanid" Type="varchar" MaxLength="50" />
+          <Property Name="assign_emp_id" Type="varchar" MaxLength="50" />
+          <Property Name="assign_vendor_id" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="bank_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bankname" Type="varchar" MaxLength="100" />
+          <Property Name="photo" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="customer_profile_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerid" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="phoneno" Type="varchar" MaxLength="50" />
+          <Property Name="dob" Type="varchar" MaxLength="50" />
+          <Property Name="weddingdate" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="alterphoneno" Type="varchar" MaxLength="50" />
+          <Property Name="profileimg" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="200" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="emp_category_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_category_id" Type="varchar" MaxLength="50" />
+          <Property Name="emp_category" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="external_comment_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="externalcomment" Type="varchar(max)" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="loan_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerid" Type="varchar" MaxLength="50" />
+          <Property Name="partnerid" Type="varchar" MaxLength="50" />
+          <Property Name="bankid" Type="varchar" MaxLength="50" />
+          <Property Name="loantype" Type="varchar" MaxLength="50" />
+          <Property Name="requestloanamt" Type="varchar" MaxLength="50" />
+          <Property Name="loanamt" Type="varchar" MaxLength="50" />
+          <Property Name="disbursementamt" Type="varchar" MaxLength="50" />
+          <Property Name="rateofinterest" Type="varchar" MaxLength="50" />
+          <Property Name="sactionedcopy" Type="varchar" MaxLength="50" />
+          <Property Name="idcopy" Type="varchar" MaxLength="50" />
+          <Property Name="loanstatus" Type="varchar" MaxLength="50" />
+          <Property Name="propertydetails" Type="varchar(max)" />
+          <Property Name="propertydocuments" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="loan_track_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loanid" Type="varchar" MaxLength="50" />
+          <Property Name="employeeid" Type="varchar" MaxLength="50" />
+          <Property Name="tracktime" Type="varchar" MaxLength="100" />
+          <Property Name="followupdate" Type="varchar" MaxLength="50" />
+          <Property Name="internalcomment" Type="varchar(max)" />
+          <Property Name="externalcomment" Type="varchar(max)" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="loantype_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loan_type" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="notification_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="50" />
+          <Property Name="notification" Type="varchar(max)" />
+          <Property Name="seenstatus" Type="int" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="process_executive">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loanid" Type="varchar" MaxLength="10" />
+          <Property Name="technical" Type="varchar" MaxLength="10" />
+          <Property Name="legal" Type="varchar" MaxLength="10" />
+          <Property Name="rcu" Type="varchar" MaxLength="10" />
+          <Property Name="comment" Type="varchar(max)" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="proof_customer_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerid" Type="varchar" MaxLength="50" />
+          <Property Name="proofid" Type="varchar" MaxLength="50" />
+          <Property Name="proofans" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="proof_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proofname" Type="varchar" MaxLength="50" />
+          <Property Name="porder" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="vendor_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="phoneno" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="companyname" Type="varchar" MaxLength="100" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="vendor_track_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loanid" Type="varchar" MaxLength="50" />
+          <Property Name="vendorid" Type="varchar" MaxLength="50" />
+          <Property Name="comment" Type="varchar(max)" />
+          <Property Name="tracktime" Type="varchar" MaxLength="50" />
+          <Property Name="addedby" Type="varchar" MaxLength="50" />
+          <Property Name="datex" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="agsfinancialsModelStoreContainer">
+          <EntitySet Name="admin_table" EntityType="Self.admin_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="assigned_table" EntityType="Self.assigned_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bank_table" EntityType="Self.bank_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer_profile_table" EntityType="Self.customer_profile_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp_category_table" EntityType="Self.emp_category_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="external_comment_table" EntityType="Self.external_comment_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loan_table" EntityType="Self.loan_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loan_track_table" EntityType="Self.loan_track_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loantype_table" EntityType="Self.loantype_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notification_table" EntityType="Self.notification_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="process_executive" EntityType="Self.process_executive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proof_customer_table" EntityType="Self.proof_customer_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proof_table" EntityType="Self.proof_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vendor_table" EntityType="Self.vendor_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vendor_track_table" EntityType="Self.vendor_track_table" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="agsfinancialsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alternatephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userrole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vendor_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="companyname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="agsfinancialsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin_table" EntityType="Self.admin_table" />
+          <EntitySet Name="vendor_table" EntityType="Self.vendor_table" />
+          <EntitySet Name="emp_category_table" EntityType="agsfinancialsModel.emp_category_table" />
+          <EntitySet Name="proof_table" EntityType="agsfinancialsModel.proof_table" />
+          <EntitySet Name="bank_table" EntityType="agsfinancialsModel.bank_table" />
+          <EntitySet Name="customer_profile_table" EntityType="agsfinancialsModel.customer_profile_table" />
+          <EntitySet Name="loan_table" EntityType="agsfinancialsModel.loan_table" />
+          <EntitySet Name="loantype_table" EntityType="agsfinancialsModel.loantype_table" />
+          <EntitySet Name="loan_track_table" EntityType="agsfinancialsModel.loan_track_table" />
+          <EntitySet Name="vendor_track_table" EntityType="agsfinancialsModel.vendor_track_table" />
+          <EntitySet Name="assigned_table" EntityType="agsfinancialsModel.assigned_table" />
+          <EntitySet Name="proof_customer_table" EntityType="agsfinancialsModel.proof_customer_table" />
+          <EntitySet Name="external_comment_table" EntityType="agsfinancialsModel.external_comment_table" />
+          <EntitySet Name="process_executive" EntityType="agsfinancialsModel.process_executive" />
+          <EntitySet Name="notification_table" EntityType="agsfinancialsModel.notification_table" />
+        </EntityContainer>
+        <EntityType Name="emp_category_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_category_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="proof_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proofname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="porder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bank_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bankname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="customer_profile_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="alterphoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="profileimg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="weddingdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="loan_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bankid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="loantype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="loanamt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disbursementamt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rateofinterest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sactionedcopy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idcopy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="partnerid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="requestloanamt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="loanstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="propertydetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="propertydocuments" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="loantype_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loan_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="loan_track_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loanid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employeeid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tracktime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="internalcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="externalcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="followupdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vendor_track_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loanid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vendorid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tracktime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="assigned_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loanid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="assign_emp_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="assign_vendor_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="proof_customer_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="proofid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="proofans" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="external_comment_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="externalcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="process_executive">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="technical" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="legal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="rcu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="loanid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="notification_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="notification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="seenstatus" Type="Int32" />
+          <Property Name="datex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="agsfinancialsModelStoreContainer" CdmEntityContainer="agsfinancialsEntities">
+          <EntitySetMapping Name="admin_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.admin_table">
+              <MappingFragment StoreEntitySet="admin_table">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="alternatephone" ColumnName="alternatephone" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="userrole" ColumnName="userrole" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vendor_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.vendor_table">
+              <MappingFragment StoreEntitySet="vendor_table">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp_category_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.emp_category_table">
+              <MappingFragment StoreEntitySet="emp_category_table">
+                <ScalarProperty Name="emp_category_id" ColumnName="emp_category_id" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="emp_category" ColumnName="emp_category" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proof_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.proof_table">
+              <MappingFragment StoreEntitySet="proof_table">
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="porder" ColumnName="porder" />
+                <ScalarProperty Name="proofname" ColumnName="proofname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bank_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.bank_table">
+              <MappingFragment StoreEntitySet="bank_table">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="bankname" ColumnName="bankname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer_profile_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.customer_profile_table">
+              <MappingFragment StoreEntitySet="customer_profile_table">
+                <ScalarProperty Name="weddingdate" ColumnName="weddingdate" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="profileimg" ColumnName="profileimg" />
+                <ScalarProperty Name="alterphoneno" ColumnName="alterphoneno" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loan_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.loan_table">
+              <MappingFragment StoreEntitySet="loan_table">
+                <ScalarProperty Name="propertydocuments" ColumnName="propertydocuments" />
+                <ScalarProperty Name="propertydetails" ColumnName="propertydetails" />
+                <ScalarProperty Name="loanstatus" ColumnName="loanstatus" />
+                <ScalarProperty Name="requestloanamt" ColumnName="requestloanamt" />
+                <ScalarProperty Name="partnerid" ColumnName="partnerid" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="idcopy" ColumnName="idcopy" />
+                <ScalarProperty Name="sactionedcopy" ColumnName="sactionedcopy" />
+                <ScalarProperty Name="rateofinterest" ColumnName="rateofinterest" />
+                <ScalarProperty Name="disbursementamt" ColumnName="disbursementamt" />
+                <ScalarProperty Name="loanamt" ColumnName="loanamt" />
+                <ScalarProperty Name="loantype" ColumnName="loantype" />
+                <ScalarProperty Name="bankid" ColumnName="bankid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loantype_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.loantype_table">
+              <MappingFragment StoreEntitySet="loantype_table">
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="loan_type" ColumnName="loan_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loan_track_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.loan_track_table">
+              <MappingFragment StoreEntitySet="loan_track_table">
+                <ScalarProperty Name="followupdate" ColumnName="followupdate" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="externalcomment" ColumnName="externalcomment" />
+                <ScalarProperty Name="internalcomment" ColumnName="internalcomment" />
+                <ScalarProperty Name="tracktime" ColumnName="tracktime" />
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="loanid" ColumnName="loanid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vendor_track_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.vendor_track_table">
+              <MappingFragment StoreEntitySet="vendor_track_table">
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="tracktime" ColumnName="tracktime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="vendorid" ColumnName="vendorid" />
+                <ScalarProperty Name="loanid" ColumnName="loanid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="assigned_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.assigned_table">
+              <MappingFragment StoreEntitySet="assigned_table">
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="assign_vendor_id" ColumnName="assign_vendor_id" />
+                <ScalarProperty Name="assign_emp_id" ColumnName="assign_emp_id" />
+                <ScalarProperty Name="loanid" ColumnName="loanid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proof_customer_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.proof_customer_table">
+              <MappingFragment StoreEntitySet="proof_customer_table">
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="proofans" ColumnName="proofans" />
+                <ScalarProperty Name="proofid" ColumnName="proofid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="external_comment_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.external_comment_table">
+              <MappingFragment StoreEntitySet="external_comment_table">
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="externalcomment" ColumnName="externalcomment" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="process_executive">
+            <EntityTypeMapping TypeName="agsfinancialsModel.process_executive">
+              <MappingFragment StoreEntitySet="process_executive">
+                <ScalarProperty Name="loanid" ColumnName="loanid" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="rcu" ColumnName="rcu" />
+                <ScalarProperty Name="legal" ColumnName="legal" />
+                <ScalarProperty Name="technical" ColumnName="technical" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notification_table">
+            <EntityTypeMapping TypeName="agsfinancialsModel.notification_table">
+              <MappingFragment StoreEntitySet="notification_table">
+                <ScalarProperty Name="addedby" ColumnName="addedby" />
+                <ScalarProperty Name="datex" ColumnName="datex" />
+                <ScalarProperty Name="seenstatus" ColumnName="seenstatus" />
+                <ScalarProperty Name="notification" ColumnName="notification" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

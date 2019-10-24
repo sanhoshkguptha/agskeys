@@ -1,0 +1,616 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AGS KEYS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Archi is best selling customedecor design website template with responsive stunning design">
+    <meta name="keywords" content="architecture,building,business,creative,exterior design,furniture design,gallery,garden design,house,customedecor design,landscape design,multipurpose,onepage,portfolio,studio">
+    <meta name="author" content="">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CSS Files
+       ================================================== -->
+    <link rel="stylesheet" href="~/frontend/css/bootstrap.min.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/jpreloader.css" type="text/css">-->
+    <link rel="stylesheet" href="~/frontend/css/animate.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/plugin.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/owl.transitions.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/style-bg.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/demo/demo.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/vendor.min.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/dashcore.min.css" type="text/css">
+    <!-- custom background -->
+    <link rel="stylesheet" href="~/frontend/css/bg.css" type="text/css">
+    <!-- color scheme -->
+    <link rel="stylesheet" href="~/frontend/css/color.css" type="text/css" id="colors">
+    <!-- load fonts -->
+    <link rel="stylesheet" href="~/frontend/fonts/font-awesome/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/fonts/elegant_font/style.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/fonts/et-line-font/style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="~/frontend/js/jquery.min.js"></script>
+    @*<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>*@
+    <!-- revolution slider -->
+    <link rel="stylesheet" href="~/frontend/rs-plugin/css/settings.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/rev-settings.css" type="text/css">
+
+    <style type="text/css">
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #fff !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #fff !important;
+        }
+
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #fff !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- header begin -->
+        @*<header class="header-light autoshow">*@
+        <header class="header-light">
+            <div class="info">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*<div class="col">Working Hours Monday - Friday <span class="id-color"><strong>08:00-16:00</strong></span></div>
+                            <div class="col">Toll Free <span class="id-color"><strong>1800.899.900</strong></span></div>*@
+                            <!-- social icons -->
+                            <div class="col social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-rss"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-envelope-o"></i></a>
+                            </div>
+                            <!-- social icons close -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <div id="logo">
+                            <a href="~/AgskeysSite/Index">
+                                <img class="logo" src="~/frontend/images/edit/logo.png" alt="">
+                            </a>
+                        </div>
+                        <!-- logo close -->
+                        <!-- small button begin -->
+                        <span id="menu-btn"></span>
+                        <!-- small button close -->
+                        <!-- mainmenu begin -->
+                        <nav class="header-mobile">
+                            <ul id="mainmenu">
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    <a href="~/AgskeysSite/Index">
+                                    </a>
+                                </li>
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "about" ? "active" : "")">
+                                    <a href="~/AgskeysSite/about">OUR TEAM</a>
+                                </li>
+                                <li class="hoverli">
+                                    <a href="#">LOANS </a>
+                                    <ul class="file_menu">
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "home_loan" ? "active" : "")">
+                                            <a href="~/AgskeysSite/home_loan">HOME LOANS</a>
+                                        </li>
+                                        @*<li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                            <a href="@Url.Content("/AgskeysSite//")">PERSONAL LOANS</a></li>*@
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "business_loan" ? "active" : "")">
+                                            <a href="~/AgskeysSite/business_loan">BUSINESS LOANS</a>
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "lap" ? "active" : "")">
+                                            <a href="~/AgskeysSite/lap">LAP</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "emi" ? "active" : "")">
+                                    <a href="~/AgskeysSite/emi">EMI</a>
+                                </li>
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "contact_us" ? "active" : "")">
+                                    <a href="~/AgskeysSite/contact_us">CONTACT US</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- mainmenu close -->
+                </div>
+            </div>
+        </header>
+
+
+        <!-- content begin -->
+        <div id="content" class="no-bottom no-top">
+            <!-- section begin -->
+            <section id="section-welcome-11" class="full-height" data-speed="3" data-type="background">
+                <div class="center-y">
+                    <div class="container-fluid">
+                        <div class="row main-text" style="margin-left: 0px;margin-right: 0px;">
+                            <div class="col-md-6">
+                                <div class="fontsize40 dark border-deco">
+                                    <div class="text-item">
+                                        <h3><span style="font-weight: 800;">Our Philosophy</span></h3>
+                                        <h2 class="style-4">It’s not about ideas. It’s about making ideas happen<span class="id-color">.</span></h2>
+                                    </div>
+                                </div>
+                                <div class="spacer-double"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes mar-22">
+                    <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-10 box-div">
+                            <div class="row">
+                                <div class="col-md-3 box-1">
+                                    <a href="~/AgskeysSite/home_loan"><p class="box-para-1">HOME LOAN</p></a>
+                                    <p class="box-para-2"><br />One stop solutions for your financial needs .</p>
+                                    <div class="col-md-12 box-img-1">
+                                        <img class="box-image" src="~/frontend/images/edit/home.svg">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 box-2">
+                                    <a href="#"><p class="box-para-1">PERSONAL LOAN</p></a>
+                                    <p class="box-para-2"><br />One stop solutions for your financial needs .</p>
+                                    <div class="col-md-12 box-img-1">
+                                        <img class="box-image" src="~/frontend/images/edit/man-user.svg">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 box-1">
+                                    <a href="~/AgskeysSite/business_loan"><p class="box-para-1">BUSINESS LOAN</p></a>
+                                    <p class="box-para-2"><br />One stop solutions for your financial needs .</p>
+                                    <div class="col-md-12 box-img-1">
+                                        <img class="box-image" src="~/frontend/images/edit/portfolio.svg">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 box-2">
+                                    <a href="~/AgskeysSite/lap"><p class="box-para-1">LAP</p></a>
+                                    <p class="box-para-2"><br />One stop solutions for your financial needs .</p>
+                                    <div class="col-md-12 box-img-1">
+                                        <img class="box-image" src="~/frontend/images/edit/property.svg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section close -->
+            <!-- section begin -->
+            <div class="more-details">
+                <div class="container ags-img">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="details-div row">
+                                <div class="col-md-6">
+                                    <div class="video-style">
+                                        <!-- <img class="details-image" src="~/frontend/images/edit/business.jpg"> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6 bg-shadow">
+                                    <P class="video-para-1">We Make Tomorrow Together</P>
+                                    <P class="video-para-2">Buying a home is a dream comes true for many of us. Home Loan is a secured loan product where the lender provides finances for the purchase or construction of a residential/commercial property. AGS Keys is a financial institution and it is incorporated in the year of 2018. We are a leading channel partners for all banks and NBFC's in India. We are committed to help loan seekers especially in Home Loan to find out the right lender with the proper guidance. We offer a one stop solution for your requirement without any extra or hidden charges.</P>
+                                    <div class="video-button">
+                                        <div class="row" style="margin-left: 0px !important">
+                                            <div class="col-md-6">
+                                            </div>
+                                            <div class="col-md-6 button-div">
+                                                <a class="styled" href="~/AgskeysSite/about">MORE DETAILS</a>
+                                                @*<button class="styled">MORE DETAILS</button>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- section close -->
+            <div class="second-div">
+                <!-- <p class="pclass6"><span class="spanclass3">SPECIAL OFFER</span> &nbsp;<span class="spanclass4">FOR CORPORATE CLIENTS</span></p>
+                   <p class="pclass7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+            </div>
+            <!-- section begin -->
+            <section class="section">
+                <div class="shape-wrapper">
+                    <div class="shape-ring absolute right top" data-aos="fade-up"></div>
+                </div>
+                <div class="container bring-to-front">
+                    <div class="row gap-y align-items-center text-center text-lg-left">
+                        <div class="col-md-6 col-lg-5 ml-lg-auto order-md-2">
+                            <div class="device-twin align-items-center">
+                                <div class="mockup absolute right" data-aos="fade-right">
+                                    <div class="screen"><img src="~/frontend/images/1.png" alt="..."></div>
+                                    <span class="button"></span>
+                                </div>
+                                <div class="iphone-x front ml-0">
+                                    <div class="screen shadow-box"><img src="~/frontend/images/2.png" alt="..."></div>
+                                    <div class="notch"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center text-md-left">
+                            <div class="wrapper center-block">
+                                <div class="panel-group panel-width" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading active" role="tab" id="headingOne">
+                                            <h4 class="panel-title accordion-align">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Home Loan
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body panel-body-style">
+                                                Purchasing a home or build up a home can be a valuable form of investment. However, it requires considerable thought and careful financial planning before taking on such a big step. If owning a house is part of your financial goal, then you'll need to know whether you can afford from your income and savings. You can use our housing loan calculator to find out your monthly installment, total repayment and total interest for any particular housing loan packages.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title accordion-align">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Property Loan
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body panel-body-style">
+                                                Most people take on a housing loan from a banking institution which offers different loan packages to cater for the needs of different users. We can help you to get a home loan of Axis bank. When it is compared with other banks, you will ensure the benefits and best Service from Our financial services. Monthly installments are fixed for a period of time.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title accordion-align">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Balance Transfer
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body panel-body-style">
+                                                Loan against property is a cheaper loan option as compared to other loan option in the market, whether it is a personal loan or a loan against security such as shares, jewellery. Come to think of it, even on the face of it-you see your house as an investment. So, first-take a loan to buy a house and then take a loan against it a few years later to meet your other needs.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section close -->
+            <!-- section service begin -->
+            <div class="messages" data-bgcolor="#eeeeee">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">                       
+                        <h4 style="color:#ffffff; text-align:center;" class="para-align">SUBSCRIBE US</h4>
+                        <p style="color:#ffffff; text-align:center;"><i>Receive updates and latest news direct from our team. Simply enter your email below :</i> </p>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="mail-para row justify-content-center" style="text-align:center;">
+                            @if (TempData["customerSuccessMsg"] != null)
+                            {
+
+                                <div class="alert alert-success alert-dismissible" role="alert">
+                                    @*<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>*@
+                                    @TempData["customerSuccessMsg"].ToString()
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="mail-div" style="padding:5px;">
+                                    <form id="main" method="post" action="@Url.Content("/Account/Subscription/")">
+                                        <input class="message-txt" type="email" id="subscriptionEmail" name="subscriptionEmail" required>
+                                        <button type="submit" class="bookbtn-1">SEND MAIL</button>
+                                    </form>
+                                </div>
+                               
+                            }
+                            @*onsubmit="alertSubscription()"*@
+                           
+
+                        </div>                       
+                    </div>
+                   
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+            <!-- section service close -->
+            <!-- section service begin -->
+            <div class="section-side-align">
+                <section id="section-side-4" class="side-bg no-padding" data-bgcolor="#eeeeee">
+                    <div class="row">
+                        <div class="image-container col-md-6 pull-left txt-align " data-delay="0">
+                            <div class="background-image"></div>
+                        </div>
+                        <div class="container our-inspi">
+                            <div class="inner-padding">
+                                <div class="row">
+                                    <div class="col-md-6 pull-right wow fadeInRight" data-wow-delay=".5s">
+
+                                    </div>
+                                    <div class="col-md-6 pull-right wow fadeInRight" data-wow-delay=".5s">
+                                        <h3>Our Inspiration!</h3>
+                                        <p>
+                                            AGS KEYS is completely independent loan advising service and our directory of lenders gives you all the information about Loans and it’s process.We understand how to effectively guide you through the home loan or refinance process and avoid potential problems along the way.
+                                        </p>
+                                        <div class="spacer-half"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- section service close -->
+            <!-- footer begin -->
+
+
+            <footer>
+                <div class="footer-class-1">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div style="padding-bottom:10px;float:left; padding-left:10px;"><span>©&nbsp;</span><span class="copyright-year">@DateTime.Now.Year</span><span>&nbsp;</span><a href="http://www.agskeys.com/" target="_blank">www.agskeys.com</a>. All Rights Reserved.<p></p></div>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="http://techvegas.in" target="_blank">Developed By Techvegas LLP</a>
+                        </div>
+                    </div>
+
+                    <!--  <p>Developed by Techvegas LLP</p>  -->
+                </div>
+            </footer>
+            <!-- footer close -->
+        </div>
+    </div>
+
+
+    <script src="~/frontend/js/jpreLoader.js"></script>
+    <script src="~/frontend/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".hoverli").hover(
+                function () {
+                    $('ul.file_menu').stop(true, true).slideDown('medium');
+                },
+                function () {
+                    $('ul.file_menu').stop(true, true).slideUp('medium');
+                }
+            );
+        });
+    </script>
+
+
+
+    <!-- The Modal
+    <div class="modal fade" id="myModal" role="dialog">
+       <div class="modal-dialog">
+          <div class="modal-content">-->
+    <!-- Modal Header
+     <div class="modal-header">
+        <h4 class="modal-title"><img class="logo" src="~/frontend/images/edit/logo.png" alt=""></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+     </div>
+     <form action="" name="" method="post" >
+        <div class="main-agile"> -->
+    <!-- Modal body
+       <div class="modal-body">
+
+             <input type="text"  class="uname" name="name" placeholder="User name" required="">
+             <input type="password"  class="email" name="email" placeholder="Password" required="">
+             <select class="ddl-bg" >
+                <option class="opt-1" value="">User type</option>
+                <option class="opt-1" value="">Partner</option>
+                <option class="opt-1" value="">Customer</option>
+                <option class="opt-1" value="">Employees</option>
+             </select>
+
+
+       </div>
+    </div>-->
+    <!-- Modal footer
+                <div class="modal-footer">
+                   <input type="submit" class="btn_sbmt" value="Login" id="form_submit_button" name="form_submit_button">
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>-->
+    <!-- Javascript Files
+       ================================================== -->
+    <div class="slide-out-div">
+        <a class="handle" href=""></a>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-agile">
+                    <form id="client-login-form" method="post" action='@Url.Content("/Account/ClientLogin/")'>
+                        <input type="text" class="uname"  id="userName" name="userName" placeholder="User name" required>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <select class="ddl-bg" id="userlevel" name="userlevel" required>
+                            <option class="opt-1" value="">User type</option>
+                            <option class="opt-1" value="partner">Partner</option>
+                            <option class="opt-1" value="clientele">Customer</option>
+                            <option class="opt-1" value="sales_executive">Sales Executive</option>
+                            <option class="opt-1" value="manager">Manager</option>
+                        </select>
+                        <div class="row text-left" style="padding: 14px 14px 0px 14px;">
+                            <div class="col-md-12">
+                                <div class="forgot-phone">
+                                    <a  onclick="createModal('@Url.Action("ForgotPasswordfront","Account")')" class="text-right" style="font-size: 12px;color:white;"> Forgot Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn_sbmt" value="Login">
+                    </form>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-in-div" style="background-color:#FF5733">
+        <a class="handles" href=""></a>
+        <a href="index.html" target="_blank"><img src="" /></a>
+    </div>
+    <div class="overlay"></div>
+    <script src="~/frontend/js/jquery.tabSlideOut.v1.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.slide-out-div').tabSlideOut({
+                tabHandle: '.handle',                 //class of the element that will become your tab
+                pathToTabImage: '../frontend/images/edit/enquiry.png',       //path to the image for the tab //Optionally can be set using css
+                imageHeight: '270px',                     //height of tab image           //Optionally can be set using css
+                imageWidth: '50px',                      //width of tab image            //Optionally can be set using css
+                tabLocation: 'right',                      //side of screen where tab lives, top, right, bottom, or left
+                speed: 300,
+                //speed of animation
+                //action: 'hover',                          //options: 'click' or 'hover', action to trigger animation
+                topPos: '150px',                          //position from the top/ use if tabLocation is left or right
+                leftPos: '76%',                          //position from left/ use if tabLocation is bottom or top
+                fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+            });
+        });
+
+        //left
+        $(document).ready(function () {
+            $(".slide-in-div").hover(function () {
+                $(".overlay").show();
+            }, function () {
+                $(".overlay").hide();
+            });
+        });
+        $(function () {
+            $('.slide-in-div').tabSlideOut({
+                tabHandle: '.handles',                     //class of the element that will become your tab
+                pathToTabImage: '../frontend/images/edit/enquiry.png',       //path to the image for the tab //Optionally can be set using css
+                imageHeight: '0px',                     //height of tab image           //Optionally can be set using css
+                imageWidth: '0px',                       //width of tab image            //Optionally can be set using css
+                tabLocation: 'right',                      //side of screen where tab lives, top, right, bottom, or left
+                speed: 300,                               //speed of animation
+                action: 'hover',                          //options: 'click' or 'hover', action to trigger animation
+                topPos: '150px',                          //position from the top/ use if tabLocation is left or right
+                leftPos: '0px',                          //position from left/ use if tabLocation is bottom or top
+                fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+
+            });
+        });
+
+
+    </script>
+
+
+
+    <script src="~/frontend/js/jquery.isotope.min.js"></script>
+    <script src="~/frontend/js/easing.js"></script>
+    <script src="~/frontend/js/jquery.flexslider-min.js"></script>
+    <script src="~/frontend/js/jquery.scrollto.js"></script>
+    <script src="~/frontend/js/owl.carousel.js"></script>
+    <script src="~/frontend/js/jquery.countTo.js"></script>
+    <script src="~/frontend/js/classie.js"></script>
+    <script src="~/frontend/js/video.resize.js"></script>
+    <script src="~/frontend/js/validation.js"></script>
+    
+    <script src="~/frontend/js/wow.min.js"></script>
+    <script src="~/frontend/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/frontend/js/enquire.min.js"></script>
+    <script src="~/frontend/js/designesia.js"></script>
+    <script src="~/frontend/js/dashcore.min.js"></script>
+    <script src="~/frontend/demo/demo.js"></script>
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    <script type="text/javascript" src="~/frontend/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="~/frontend/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <!--   <script>
+          $(document).ready(function() {
+              $(".close").click(function() {
+                  $("body").removeClass("popupremove")
+              });
+          });
+       </script>-->
+    
+
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            $('#login_fix').css('top', $(this).scrollTop() + 100 + "px");
+        });
+    </script>
+    <div class="modal de fade" id="myModal1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" style="margin-top: 170px;">
+            <div class="modal-content" id="modelContent1">
+            </div>
+        </div>
+    </div>
+    <script>
+        function createModal(url) {
+            $('#modelContent1').load(url);
+            $('.de').modal('show');
+        }
+    </script>
+    @*<script>
+        function alertSubscription() {
+            alert("You Subscribed to AGSKEYS");
+        }
+    </script>*@
+
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    @*@if (ViewBag.customerSuccessMsg != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewBag.customerSuccessMsg');
+                alert("hai");
+            };
+        </script>
+    }*@
+    @*<script type="text/javascript">
+
+            $(document).ready(function () {
+                alert('@ViewBag.customerSuccessMsg');
+                alert("hai da");
+            });
+
+
+
+    </script>*@
+</body >
+</html >

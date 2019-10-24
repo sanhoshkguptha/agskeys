@@ -1,0 +1,159 @@
+﻿@model IEnumerable<agskeys.Models.admin_table>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-users bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>User Management</h5>
+                    <span>Agskeys</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="#"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#!">User Management</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+                            <p>
+                                <button onclick="createModal('@Url.Action("Create", "Admin")')" class="btn waves-effect waves-light hor-grd btn-grd-primary"><i class="fa fa-user-plus"></i>Create</button>
+                            </p>
+                            <table id="alt-pg-dt" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>
+                                            Photo
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            User Type
+                                        </th>
+                                        <th>
+                                            User Name
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        i++;
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>
+                                                @{if (item.photo != null)
+                                                    {
+                                                        if (System.IO.File.Exists(Server.MapPath(item.photo)) == true)
+                                                        {
+
+                                                            <img src="@Url.Content(item.photo)" alt="This is Image Alt" title="This is Image Title" width="100" height="100">
+                                                        }
+                                                        else
+                                                        {
+
+                                                            <img src="@Url.Content("~/adminimage/dummy.jpg")" alt="This is Default Image" title="This is Default Image Title" width="100" height="100">
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        @*<img src="@Url.Content(item.photo)" width="50" height="50" />*@
+                                                        @Html.DisplayFor(modelItem => item.photo)
+                                                        <img src="@Url.Content("~/adminimage/dummy.jpg")" alt="This is Default Image" title="This is Default Image Title" width="100" height="100">
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.name)
+                                            </td>
+                                            <td>
+                                                @*@{if (item.userrole == "ab1d92aaed90828a0fc1c95ecd5fda1f")
+                                                        {
+                                                            item.userrole = "Super Admin";
+                                                        }
+                                                        else if (item.userrole == "079e946e1272938b097a0baab6a36477")
+                                                        {
+                                                            item.userrole = "Admin";
+                                                        }
+                                                        else
+                                                        {
+                                                            item.userrole = "Undefined";
+                                                        }
+                                                    }*@
+                                                @Html.DisplayFor(modelItem => item.userrole)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.username)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.isActive)
+                                            </td>
+                                            <td>
+                                                <a href="#" id="edit" onclick="createModal('@Url.Action("Edit", "Admin" , new {id=item.id })')"><i class="icon feather icon-edit f-w-600 f-16 m-r-15 text-c-green"></i></a>
+                                                <a href="#" id="details" onclick="createModal('@Url.Action("Details", "Admin" , new {id=item.id })')"><i class="icon feather icon-info f-w-600 f-16 m-r-15" style="color:#0042fb;"></i></a>
+                                                <a href="#" id="delete" onclick="createModal('@Url.Action("Delete", "Admin" , new {id=item.id })')"><i class="feather icon-trash-2 f-w-600 f-16 text-c-red"></i></a>
+                                            </td>
+                                        </tr>
+                                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <th>#</th>
+                                        <th>
+                                            Photo
+                                        </th>
+                                        <th>
+                                            User Type
+                                        </th>
+                                        <th>
+                                            User Name
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="styleSelector">
+    </div>
+</div>

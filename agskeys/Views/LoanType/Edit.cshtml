@@ -1,0 +1,97 @@
+﻿@model agskeys.Models.loantype_table
+
+<div class="modal-body">
+    <!-- [ breadcrumb ] start -->
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-user bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Edit Loan Type</h5>
+                        <span>Agskeys</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-block">
+                                @if (TempData["AE"] != null)
+                                {
+
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        @TempData["AE"].ToString()
+                                    </div>
+
+                                }
+                               
+
+                                @using (Html.BeginForm("Edit", "LoanType", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        @*@if (TempData["Message"] != null)
+                                        {
+
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                @TempData["Message"].ToString()
+                                            </div>
+
+                                        }*@
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.id)
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.loan_type, htmlAttributes: new { @class = "control-label col-md-12" })
+                                                    <div class="col-md-12">
+                                                        @Html.EditorFor(model => model.loan_type, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.loan_type, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-12">
+                                                        <input type="submit" value="Save" class="btn btn-default" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div>
+                                    @Html.ActionLink("Back to List", "loantype")
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

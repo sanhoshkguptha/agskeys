@@ -1,0 +1,139 @@
+﻿@model agskeys.Models.loan_table
+
+
+<div class="modal-body" style="background: #f1efef;">
+    <!-- [ breadcrumb ] start -->
+   
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+    <!-- [ breadcrumb ] end -->
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-body " style="padding: 20px;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+
+                                <div class="row">                                   
+                                    <div class="col-sm-12 col-md-12">
+                                        <h4 style="text-align: center;margin-bottom:25px;">Loan Information</h4>
+                                        <hr class="style-two">
+                                        <table class="table">
+                                            <tr>
+                                                <th style="border-top:none;"><i class="fa fa-envelope" aria-hidden="true"></i></th>
+
+                                                <td style="border-top: none;">@Html.DisplayFor(model => model.partnerid)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-university" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.bankid)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-university" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.loantype)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-rupee" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.loanamt)<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.loanamt) )</span></td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-rupee" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.disbursementamt)<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.disbursementamt) )</span></td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-percent" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.rateofinterest)<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.rateofinterest) )</span></td>
+
+                                            </tr>
+                                           @*<tr>
+                                                <th><i class="fa fa-percent" aria-hidden="true"></i></th>
+                                                @if (!string.IsNullOrEmpty(Model.followupdate))
+                                                {
+                                                    <td>@Html.DisplayFor(model => model.followupdate)<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.followupdate) )</span></td>
+                                                }
+                                                else
+                                                {
+                                                    <td>Not Yet Updated<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.followupdate) )</span></td>
+                                                }
+
+
+                                            </tr>*@
+                                            @if (!string.IsNullOrEmpty(Model.sactionedcopy))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldSactionedCopy" href="@Url.Content(Model.sactionedcopy)" download>Download Sactioned Copy (Click here)</a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td>Sactioned Copy Not Available Here</td>
+                                                </tr>
+                                            }
+                                            @if (!string.IsNullOrEmpty(Model.idcopy))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldIdCopy" href="@Url.Content(Model.idcopy)" download>Download ID Copy (Click here)</a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td> ID Copy Not Available Here</td>
+                                                </tr>
+                                            }
+                                            @if (!string.IsNullOrEmpty(Model.propertydocuments))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldPropertyDocuments" href="@Url.Content(Model.propertydocuments)" download>Download Property Documents (Click here)</a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td> Property Documents Not Available Here</td>
+                                                </tr>
+                                            }
+
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

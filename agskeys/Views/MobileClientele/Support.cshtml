@@ -1,0 +1,91 @@
+﻿@model IEnumerable<agskeys.Models.customer_profile_table>
+
+@{
+    ViewBag.Title = "Support";
+    Layout = "~/Views/Shared/_MobileClienteleLayout.cshtml";
+}
+
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8 ">Support</p>
+                    <a class="col-sm-2 col-xs-2 " onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="L1 main-page" id="L-body" style="background: #ffe6e8;min-height: 100%;">
+    <div class="container">
+        <div class="row " id="support">
+            <h2><img src="/ags-mobile/images/keys.png"></h2>
+
+
+
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="supp-details">
+
+                        <i class="fa fa-info-circle"></i>
+                        <h5 class="card-title">About Us</h5><br />
+
+                    </div>
+                    <hr class="style-two">
+                  
+                    <div class="supp-details1">
+
+                        <p class="card-text">Aggressive Sales and Services is a leading consumer financial services company founded in 2011 and based in Bangalore. We are one of the dynamic, growing company with interests in multiple segments of the financial services. We are committed to help loan seekers especially in Home Loan to find out the right lender with the proper guidance. It is a one stop solution for your requirement without any extra or hidden charges. We can get you loan on lowest interest rates and we keep the maximum transparency in all of our transactions.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="supp-details">
+
+                        <i class="fa fa-phone"></i>
+                        <h5 class="card-title">Contact Us</h5><br />
+
+                    </div>
+                    <hr class="style-two">
+                   
+                    <div class="supp-details1">
+                        <i class="fa fa-mobile"></i>
+                        <p class="card-text ">080 4222 4222</p>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="supp-details">
+
+                        <i class="fa fa-envelope"></i>
+                        <h5 class="card-title">Email</h5><br />
+
+                    </div>
+                    <hr class="style-two">
+                    
+                    <div class="supp-details1">
+                        <i class="fa fa-envelope"></i>
+                        <p class="card-text ">info@agsfinancials.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

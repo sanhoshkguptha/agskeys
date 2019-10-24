@@ -1,0 +1,87 @@
+﻿@model agskeys.Models.vendor_table
+
+<div class="modal-body">
+    <!-- [ breadcrumb ] start -->
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-user bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Vendor Details - Admin</h5>
+                        <span>Agskeys</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- [ breadcrumb ] end -->
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-block " style="background: linear-gradient(to right, #e2e2e2  50%, #ffff0000 50%);box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+
+                                <div class="row" style="padding-top: 20px;">
+                                    <div class="col-sm-6 col-md-6">
+                                        <h4 style="margin-bottom:25px;">Main Information</h4>
+                                        <table class="table">
+                                            <tr>
+                                                <th><i class="fa fa-user" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.name)<span style="color:#808080"> (Name)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-user-secret" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.username)<span style="color:#808080"> (User name)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-building" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.companyname)<span style="color:#808080"> (Company name)</span></td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <h4 style="margin-bottom:25px;">Additional Information</h4>
+                                        <table class="table">
+                                            <tr>
+                                                <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.email)</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-phone-square" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.phoneno)</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-address-card" aria-hidden="true"></i></th>
+                                                <td>@Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", @readonly = true, @style = "background-color:#FFF;" } })</td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+

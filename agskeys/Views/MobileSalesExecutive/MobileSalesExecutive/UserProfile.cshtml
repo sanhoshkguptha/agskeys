@@ -1,0 +1,154 @@
+﻿
+@model agskeys.Models.admin_table
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_MobileSalesExecutiveLayout.cshtml";
+}
+
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8 ">Profile</p>
+                    <a class="col-sm-2 col-xs-2 " onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="L1 main-page" id="L-body" style="min-height: 100%;">
+    <div class="container">
+        <div class="row" id="sec" style="padding-top: 20px;">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <a id="edit" class="btn btn-out waves-effect waves-light btn-default btn-square" style="border:none;color: white;background: transparent;" href="@Url.Action("EditProfile","MobileSalesExecutive", new {id=Model.id })">
+                    <i class="fa fa-edit" style="padding-right: 4px;"></i>Edit Profile
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <a class="btn btn-out waves-effect waves-light btn-default btn-square" style="border:none;color: white;background: transparent;" onclick="createModal('@Url.Action("Password", "MobileSalesExecutive")')">
+                    <i class="fa fa-lock" style="padding-right: 4px;"></i>Change Password
+                </a>
+            </div>
+
+
+            <div class="col-sm-12 col-xs-12 disp-name">
+                @if (!string.IsNullOrEmpty(Model.photo))
+                {
+
+
+                    if (System.IO.File.Exists(Server.MapPath(Model.photo)) == true)
+                    {
+
+                        <img class="img-circle" width="104" height="104" src="@Url.Content(Model.photo)" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                    }
+                    else
+                    {
+
+                        <img class="img-circle" width="104" height="104" src="~/customerImage/customer_dummy.png" style="margin-top: 20px;">
+                    }
+
+                }
+                else
+                {
+                    <img class="img-circle" width="104" height="104" src="~/customerImage/customer_dummy.png" style="margin-top: 20px;">
+                }
+            </div>
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <p>@Html.DisplayFor(model => model.name)</p>
+            </div>
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <label class="col-sm-12 col-form-label" style="color:#ffffff">
+                    @{  var status = "";}
+                    @{if (Model.isActive == false)
+                        {
+                            status = "Not Active";
+                        }
+                        else if (Model.isActive == true)
+                        {
+                            status = "Active";
+                        }
+                        else
+                        {
+                            status = "Undefined";
+                        }
+                    }
+                    @Html.DisplayFor(model => model.userrole)<span>( @status )</span>
+                </label>
+
+            </div>
+        </div>
+
+        <!-- Basic Form Inputs card start -->
+        <div class="card">
+            <div class="card-block ">
+
+                <div class="row" style="padding-top: 20px;">
+
+                    <div class="col-sm-6 col-md-6">
+                        @if (TempData["PswdSuccess"] != null)
+                        {
+
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                @TempData["PswdSuccess"].ToString()
+                            </div>
+
+                        }
+                        @if (TempData["updateSuccess"] != null)
+                        {
+
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                @TempData["updateSuccess"].ToString()
+                            </div>
+
+                        }
+                        <h4 style="margin-bottom:25px;">Additional Information</h4>
+                        <table class="table">
+                            <tr>
+                                <th><i class="fa fa-user-secret" aria-hidden="true"></i></th>
+                                <td>@Html.DisplayFor(model => model.username)<span style="color:#808080"> (User name)</span></td>
+                            </tr>                            
+                            <tr>
+                                <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+                                <td>@Html.DisplayFor(model => model.email)</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fa fa-phone-square" aria-hidden="true"></i></th>
+                                <td>@Html.DisplayFor(model => model.phoneno)</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fa fa-phone-square" aria-hidden="true"></i></th>
+                                <td>
+                                    @{if (Model.alternatephone == null)
+                                        {
+                                            Model.alternatephone = "Not Updated";
+                                        }
+                                    }
+                                    @Html.DisplayFor(model => model.alternatephone)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><i class="fa fa-home" aria-hidden="true"></i></th>
+                                <td>@Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", @readonly = true, @style = "background-color:#FFF; border: 0;", @rows = 5 } })</td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

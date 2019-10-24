@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AGS KEYS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Archi is best selling customedecor design website template with responsive stunning design">
+    <meta name="keywords" content="architecture,building,business,creative,exterior design,furniture design,gallery,garden design,house,customedecor design,landscape design,multipurpose,onepage,portfolio,studio">
+    <meta name="author" content="">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CSS Files
+       ================================================== -->
+    <link rel="stylesheet" href="~/frontend/css/bootstrap.min.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/jpreloader.css" type="text/css">-->
+    <link rel="stylesheet" href="~/frontend/css/animate.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/plugin.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/owl.transitions.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/style-bg.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/style-pagefold.css" type="text/css">
+    <link href="~/frontend/css/fontello/css/fontello.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/frontend/demo/demo.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/vendor.min.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/dashcore.min.css" type="text/css">
+    <!-- custom background -->
+    <link rel="stylesheet" href="~/frontend/css/bg.css" type="text/css">
+    <!-- color scheme -->
+    <link rel="stylesheet" href="~/frontend/css/color.css" type="text/css" id="colors">
+    <!-- load fonts -->
+    <link rel="stylesheet" href="~/frontend/fonts/font-awesome/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/fonts/elegant_font/style.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/fonts/et-line-font/style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="~/frontend/js/jquery.min.js"></script>
+    @*<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>*@
+    <!-- revolution slider -->
+    <link rel="stylesheet" href="~/frontend/rs-plugin/css/settings.css" type="text/css">
+    <link rel="stylesheet" href="~/frontend/css/rev-settings.css" type="text/css">
+
+    <style type="text/css">
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #fff !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #fff !important;
+        }
+
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #fff !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- header begin 
+             <header class="header-light autoshow">-->
+        <header class="header-light">
+            <div class="info">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col">Working Hours Monday - Friday <span class="id-color"><strong>08:00-16:00</strong></span></div>
+                            <div class="col">Toll Free <span class="id-color"><strong>1800.899.900</strong></span></div>
+                            <!-- social icons -->
+                            <div class="col social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-rss"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-envelope-o"></i></a>
+                            </div>
+                            <!-- social icons close -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <div id="logo">
+                            <a href="~/AgskeysSite/Index">
+                                <img class="logo" src="~/frontend/images/edit/logo.png" alt="">
+                            </a>
+                        </div>
+                        <!-- logo close -->
+                        <!-- small button begin -->
+                        <span id="menu-btn"></span>
+                        <!-- small button close -->
+                        <!-- mainmenu begin -->
+                        <nav class="header-mobile">
+                            <ul id="mainmenu">
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Indev" ? "active" : "")">
+                                    <a href="~/AgskeysSite/Index">HOME</a>
+                                </li>
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "about" ? "active" : "")">
+                                    <a href="~/AgskeysSite/about">OUR TEAM</a>
+                                </li>
+                                <li class="hoverli">
+                                    <a href="#">LOANS </a>
+                                    <ul class="file_menu">
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "home_loan" ? "active" : "")">
+                                            <a href="~/AgskeysSite/home_loan">HOME LOANS</a>
+                                        </li>
+                                        @*<li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                            <a href="@Url.Content("/AgskeysSite//")">PERSONAL LOANS</a></li>*@
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "business_loan" ? "active" : "")">
+                                            <a href="~/AgskeysSite/business_loan">BUSINESS LOANS</a>
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "lap" ? "active" : "")">
+                                            <a href="~/AgskeysSite/lap">LAP</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "emi" ? "active" : "")">
+                                    <a href="~/AgskeysSite/emi">EMI</a>
+                                </li>
+                                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "contact_us" ? "active" : "")">
+                                    <a href="~/AgskeysSite/contact_us">CONTACT US</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- mainmenu close -->
+                </div>
+            </div>
+        </header>
+
+
+
+
+        @RenderBody()
+
+        <script src="~/frontend/js/jpreLoader.js"></script>
+        <script src="~/frontend/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".hoverli").hover(
+                    function () {
+                        $('ul.file_menu').stop(true, true).slideDown('medium');
+                    },
+                    function () {
+                        $('ul.file_menu').stop(true, true).slideUp('medium');
+                    }
+                );
+            });
+        </script>
+
+
+
+
+        <script src="~/frontend/js/jquery.isotope.min.js"></script>
+        <script src="~/frontend/js/easing.js"></script>
+        <script src="~/frontend/js/jquery.flexslider-min.js"></script>
+        <script src="~/frontend/js/jquery.scrollto.js"></script>
+        <script src="~/frontend/js/owl.carousel.js"></script>
+        <script src="~/frontend/js/jquery.countTo.js"></script>
+        <script src="~/frontend/js/classie.js"></script>
+        <script src="~/frontend/js/video.resize.js"></script>
+        <script src="~/frontend/js/validation.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO2fJ8DfdyKRIvmxp96MAG6BeNiCX27lQ&callback=initMap"></script>
+        <script src="~/frontend/js/map.js"></script>
+        <script src="~/frontend/js/wow.min.js"></script>
+        <script src="~/frontend/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/frontend/js/enquire.min.js"></script>
+        <script src="~/frontend/js/designesia.js"></script>
+        <script src="~/frontend/js/dashcore.min.js"></script>
+        <script src="~/frontend/demo/demo.js"></script>
+        <!-- SLIDER REVOLUTION SCRIPTS  -->
+        <script type="text/javascript" src="~/frontend/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="~/frontend/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <!--   <script>
+              $(document).ready(function() {
+                  $(".close").click(function() {
+                      $("body").removeClass("popupremove")
+                  });
+              });
+           </script>-->
+        <script>
+             var allowSubmit = false;
+             function capcha_filled() {
+                 allowSubmit = true;
+             }
+             function capcha_expired() {
+                 allowSubmit = false;
+             }
+             function check_if_capcha_is_filled(e) {
+                 if (allowSubmit) return true;
+                 e.preventDefault();
+                 alert('Fill in the capcha!');
+             }
+
+        </script>
+
+        <script type="text/javascript">
+            $(window).scroll(function () {
+                $('#login_fix').css('top', $(this).scrollTop() + 100 + "px");
+            });
+        </script>
+       
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+﻿@model agskeys.Models.vendor_table
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_MobileVendorLayout.cshtml";
+}
+
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8 ">Edit Profile</p>
+                    <a class="col-sm-2 col-xs-2 " onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@using (Html.BeginForm("EditProfile", "MobileVendor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+    <div class="L1 main-page" id="L-body" style="min-height: 100%;">
+        <div class="container">
+
+            
+
+        <!-- Basic Form Inputs card start -->
+        <div class="card">
+            <div class="card-block ">
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xs-12" style="padding-top: 20px;">
+                        <h4 style="margin-bottom:25px;">Profile Information</h4>
+                        @if (TempData["Message"] != null)
+                        {
+
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                @TempData["Message"].ToString()
+                            </div>
+
+                        }
+                        <table class="table">
+                            <tr>
+                                <th><i class="fa fa-user" aria-hidden="true"></i></th>
+                                <td>
+                                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+
+                                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                                    <span style="color:#808080"> ( username )</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="fa fa-user" aria-hidden="true"></i></th>
+                                <td>
+                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="fa fa-phone" aria-hidden="true"></i></th>
+                            <td>
+                                @Html.EditorFor(model => model.phoneno, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.phoneno, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+                        <td>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            <tr>
+                <th><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                <td>
+                    @Html.EditorFor(model => model.companyname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.companyname, "", new { @class = "text-danger" })
+                <span style="color:#808080"> ( @Html.DisplayNameFor(model => model.companyname) )</span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><i class="fa fa-home" aria-hidden="true"></i></th>
+            <td>
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", @rows = 5 } })
+            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+
+    <tr style="display:none;">
+        <th><i class="fa fa-home" aria-hidden="true"></i></th>
+        <td>
+            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+
+</table>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="col-md-2 col-sm-2 col-xs-2">
+    </div>
+    <div class="form-group">
+        <div class="col-md-10 col-sm-10 col-xs-10">
+            <input type="submit" value="Save" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" style="background-color: #d91f27; border-color: white;width: 100%;" />
+        </div>
+    </div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+                        }

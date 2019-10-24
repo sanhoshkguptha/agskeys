@@ -1,0 +1,127 @@
+﻿@{
+    Layout = "~/Views/Shared/_FrontendLayout.cshtml";
+}
+
+<style>
+  
+    #contact_form input[placeholder], #contact_form textarea[placeholder] {
+        color: #000000 !important;
+    }
+</style>
+                                  
+        <!-- subheader -->
+        <section id="subheader" class="subheaderc" data-speed="8" data-type="background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Contact</h1>
+                        <ul class="crumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="sep">/</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subheader close -->
+        <!-- content begin -->
+        <div id="content" class="">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 wow fadeInUp" data-wow-delay=".5s">
+                        <h3 class="txt-align2" style="padding-bottom: 14px;letter-spacing: 2px;font-weight: 700;">Send Us Message</h3>
+                        @if (TempData["EnquirySuccessMsg"] != null)
+                        {
+
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                @TempData["EnquirySuccessMsg"].ToString()
+                            </div>
+
+                        }
+                        <p class="para-align" style="padding-top: 0px !important;">Don't step back. It's your right to know if we're good for you. We'd be more than happy and waiting to offer our services for you. Its a spark that ignites bonfire. Go on and ignite the conversation. Also don't forget to include your valid contact information and take time to type in a brief requirement list so that we call you prepared.</p>
+                        <form name="contactForm" method="post" action="@Url.Content("/Account/SendEnquiry/")">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div>
+                                        <label>Name</label>
+                                        <input type='text' name='name' id='name' class="form-control" required placeholder="Your Name">
+                                    </div>
+                                    <label>Email</label>
+                                    <div>
+                                        <input type='text' name='email' id='email' class="form-control" required placeholder="Your Email">
+                                    </div>
+                                    <div>
+                                        <label>Phone Number</label>
+                                        <input type="text" name="phone" id="phone" class="form-control" required placeholder='Your Phone'>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div>
+                                        <label>Message</label>
+                                        <textarea name='message' id='message' required style="height: 299px !important; margin-bottom: 1px !important;"  class="form-control" placeholder="Your Message"></textarea>
+                                    </div>
+                                </div>
+                                @*<div class="col-sm-12 col-md-12" style="padding-bottom: 15px;">
+                                    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
+                                    <div class="g-recaptcha" data-callback="capcha_filled" data-expired-callback="capcha_expired" data-sitekey="6LerYB4UAAAAAJ7AaEG668zVXd05ZtLGKpVJHH5t"></div>
+
+                                     <div class="g-recaptcha"  required data-sitekey="6LfHbA8UAAAAAFAwjJqn3CgrkM_JzFP7cV49pCXG"></div> 
+
+                                </div>*@
+                                <div class="col-md-12">
+                                    <p >
+                                        <input type='submit'  value='Submit Form' style="color:#ffffff"  class="btn btn-line">
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="sidebar" class="col-md-4 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="widget widget_text" style="padding-top:0px !important">
+                            <h3 class="txt-align3" style="letter-spacing: 2px;font-weight: 700;">Contact Info</h3>
+                            <address style="line-height: 4.5;">
+                                <span class="addr-align" style="line-height: 2.5;">No.3445, 2nd floor, 4th cross,10th main road, Indira Nagar,Bangalore - 38</span>
+
+
+                                <span style="padding-top: 14px;padding-bottom: 18px;"><img class="contact-img" src="~/frontend/images/edit/email-open.svg"><a class="contact-email" href="#">info@agsfinancials.com</a></span>
+                                <span style="padding-top: 14px;padding-bottom: 18px;"><img class="contact-img" src="~/frontend/images/edit/web.svg"><a class="contact-email" href="#test">www.agskeys.com</a></span>
+                                <span><img class="contact-img" src="~/frontend/images/edit/support.svg"><b class="contact-no">080 - 42224222</b></span>
+                            </address>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <section class="no-bottom" aria-label="map-container">
+                <div id="map"></div>
+            </section>
+        </div>
+        <!-- footer begin -->
+        <footer>
+            <div class="footer-class-1">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div style="padding-bottom:10px;float:left; padding-left:10px;"><span>©&nbsp;</span><span class="copyright-year">@DateTime.Now.Year</span><span>&nbsp;</span><a href="http://www.agskeys.com/" target="_blank">www.agskeys.com</a>. All Rights Reserved.<p></p></div>
+                    </div>
+                    <div class="col-md-4">
+                    <a href="http://techvegas.in" target="_blank">Developed By Techvegas LLP</a>                        
+                    </div>
+                </div>
+              
+                <!--  <p>Developed by Techvegas LLP</p>  -->
+            </div>
+        </footer>
+        <!-- footer close -->
+
+
+
+

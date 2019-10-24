@@ -1,0 +1,211 @@
+﻿@model agskeys.Models.admin_table
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_MobileManagerLayout.cshtml";
+}
+
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8 ">Edit Profile</p>
+                    <a class="col-sm-2 col-xs-2 " onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+     function readURL(input) {
+         $('#oldPhoto').hide();
+         $('#blah').removeAttr('hidden');
+
+         if (input.files && input.files[0]) {
+             var reader = new FileReader();
+
+             reader.onload = function (e) {
+                 $('#blah')
+                     .attr('src', e.target.result)
+                     .width(150)
+                     .height(150);
+             };
+
+             reader.readAsDataURL(input.files[0]);
+         }
+     }
+</script>
+
+@using (Html.BeginForm("EditProfile", "MobileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+    <div class="L1 main-page" id="L-body" style="min-height: 100%;">
+        <div class="container">
+
+            <div class="row" id="sec" style="padding-top: 20px;">
+
+                <div class="col-sm-12 col-xs-12 disp-name">
+
+                    @if (!string.IsNullOrEmpty(Model.photo))
+                {
+
+
+                    if (System.IO.File.Exists(Server.MapPath(Model.photo)) == true)
+                    {
+
+                            <img class="img-circle" width="104" height="104" src="@Url.Content(Model.photo)" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                        }
+                        else
+                        {
+
+                            <img class="img-circle" width="104" height="104" src="~/customerImage/customer_dummy.png" style="margin-top: 20px;">
+                        }
+
+                    }
+                    else
+                    {
+                        <img class="img-circle" width="104" height="104" src="~/customerImage/customer_dummy.png" style="margin-top: 20px;">
+                    }
+                </div>
+               
+            </div>
+
+            <!-- Basic Form Inputs card start -->
+            <div class="card">
+                <div class="card-block ">
+
+                    <div class="row">
+
+                        <div class="col-sm-12 col-md-12 col-xs-12" style="padding-top: 20px;">
+                            <h4 style="margin-bottom:25px;">Profile Information</h4>
+
+
+                            @if (TempData["Message"] != null)
+                            {
+
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    @TempData["Message"].ToString()
+                                </div>
+
+                            }
+
+
+
+                            <table class="table">
+                                <tr>
+                                    <th><i class="fa fa-user" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+
+                                        @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                                        <span style="color:#808080"> ( username )</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa fa-user" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa fa-phone" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.phoneno, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.phoneno, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa fa-phone-square" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.alternatephone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.alternatephone, "", new { @class = "text-danger" })
+                                        <span style="color:#808080"> ( @Html.DisplayNameFor(model => model.alternatephone) )</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.dob, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.dob, "", new { @class = "text-danger" })
+                                        <span style="color:#808080"> ( @Html.DisplayNameFor(model => model.dob) )</span>
+                                    </td>
+                                </tr>
+
+                                <tr style="display:none">
+                                    <th><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.userrole, ViewBag.categorylist as SelectList, "Please select user category", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.userrole, "", new { @class = "text-danger" })
+                                        <span style="color:#808080"> ( @Html.DisplayNameFor(model => model.dob) )</span>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <th><i class="fa fa-home" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", @rows = 5 } })
+                                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+
+                                <tr style="display:none;">
+                                    <th><i class="fa fa-home" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+
+                                <tr style="display:none;">
+                                    <th><i class="fa fa-home" aria-hidden="true"></i></th>
+                                    <td>
+                                        @Html.EditorFor(model => model.isActive)
+                                        @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                    <input type="submit" value="Save" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" style="background-color: #d91f27; border-color: white;width: 100%;"  />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+                        }

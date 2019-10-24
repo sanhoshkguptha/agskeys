@@ -1,0 +1,161 @@
+﻿@model agskeys.Models.loan_table
+
+<div class="modal-body">
+    <!-- [ breadcrumb ] start -->
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-4">
+            <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <!-- [ breadcrumb ] end -->
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-block ">
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <center style="padding-bottom:30px;">
+                                            @if (!string.IsNullOrEmpty(ViewBag.profileimg))
+                                            {
+
+
+                                                if (System.IO.File.Exists(Server.MapPath(ViewBag.profileimg)) == true)
+                                                {
+
+                                                    <img class="img-circle" width="150" height="150" src="@Url.Content(ViewBag.profileimg)" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                                                }
+                                                else
+                                                {
+
+                                                    <img class="img-circle" width="150" height="150" src="~/customerImage/customer_dummy.png" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                <img class="img-circle" width="150" height="150" src="~/customerImage/customer_dummy.png" style="border-radius: 6.25rem!important;box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+                                            }
+                                            <div class="form-group prf row">
+                                                <label class="col-sm-12 col-form-label">@Html.DisplayFor(model => model.customerid)<span style="color:#808080"> ( Customer Id )</span></label>
+                                            </div>
+                                            <div class="form-group prf row">
+                                                <label class="col-sm-12 col-form-label">@ViewBag.name <span style="color:#808080"> ( Customer Name )</span></label>
+                                            </div>
+                                            <div class="form-group prf row">
+                                                <label class="col-sm-12 col-form-label">@ViewBag.phoneno <span style="color:#808080"> ( Phone Number )</span></label>
+                                            </div>
+                                            <div class="form-group prf row">
+                                                <label class="col-sm-12 col-form-label">@ViewBag.email <span style="color:#808080"> ( Customer Email )</span></label>
+                                            </div>
+
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <h4 style="margin-bottom:25px;">Additional Information</h4>
+                                        <table class="table">
+                                            <tr>
+                                                <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+
+                                                <td>@Html.DisplayFor(model => model.partnerid)</td>
+
+                                            </tr>
+                                            @*<tr>
+                                                    <th><i class="fa fa-phone-square" aria-hidden="true"></i></th>
+                                                    <td>
+                                                        @{if (Model.alternatephone == null)
+                                                            {
+                                                                Model.alternatephone = "Not Updated";
+                                                            }
+                                                        }
+                                                        @Html.DisplayFor(model => model.alternatephone)
+                                                    </td>
+                                                </tr>*@
+
+                                            <tr>
+                                                <th><i class="fa fa-university" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.bankid)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-university" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.loantype)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fa fa-rupee" aria-hidden="true"></i></th>
+                                                <td>@Html.DisplayFor(model => model.requestloanamt)<span style="color:#808080"> ( @Html.DisplayNameFor(model => model.requestloanamt) )</span></td>
+
+                                            </tr>
+                                            @if ((Model.sactionedcopy == null && Model.sactionedCopyFile == null) || (Model.sactionedcopy == ""))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldSactionedCopy"> Sactioned Copy is not updated</a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldSactionedCopy" href="@Url.Content(Model.sactionedcopy)" target="_blank" download>Download Sactioned Copy (Click here)</a></td>
+                                                </tr>
+
+                                            }
+                                            @if ((Model.idcopy == null && Model.idCopyFile == null) || (Model.idcopy == ""))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldIdCopy">DD Copy is not updated </a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldIdCopy" href="@Url.Content(Model.idcopy)" target="_blank" download>Download DD Copy (Click here)</a></td>
+                                                </tr>
+
+                                            }
+                                            @if (!string.IsNullOrEmpty(Model.propertydocuments))
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td><a id="oldPropertyDocuments" href="@Url.Content(Model.propertydocuments)" target="_blank">Download Property Documents (Click here)</a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th><i class="fa fa-download" aria-hidden="true"></i></th>
+                                                    <td> Property Documents Not Available Here</td>
+                                                </tr>
+                                            }
+
+
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

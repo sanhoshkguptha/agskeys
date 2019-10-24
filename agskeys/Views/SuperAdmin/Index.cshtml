@@ -1,0 +1,282 @@
+﻿@model IEnumerable<agskeys.Models.MultipleEmpClass>
+
+
+<!-- [ breadcrumb ] start -->
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Dashboard Super Admin</h5>
+                    <span>Agskeys</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="#"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard Super Admin</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <!-- [ page content ] start -->
+                <div class="row">
+                    <!-- product profit start -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card card-red">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col">
+
+                                        <h6 class="m-b-5 text-white">Customers</h6>
+                                        <h3 class="m-b-0 f-w-700 text-white">@if (!string.IsNullOrEmpty(@ViewData["customerCount"].ToString()))
+                                        {
+                                            @ViewData["customerCount"]
+                                        }
+                                        else {
+                                            <span>0</span>
+                                        }</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-users text-c-red f-18"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card card-blue">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Vendors</h6>
+                                        <h3 class="m-b-0 f-w-700 text-white">@if (!string.IsNullOrEmpty(@ViewData["partnerCount"].ToString()))
+                                        {
+                                            <span>@ViewData["partnerCount"]</span>
+                                        }
+                                        else
+                                        {
+                                            <span>0</span>
+                                        }</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-user-secret text-c-blue f-18"></i>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card card-green">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Employees</h6>
+                                        <h3 class="m-b-0 f-w-700 text-white">@if (!string.IsNullOrEmpty(@ViewData["employeeCount"].ToString()))
+                                        {
+                                            <span>@ViewData["employeeCount"]</span>
+                                            
+                                        }
+                                        else
+                                        {
+                                            <span>0</span>
+                                        }</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-users text-c-green f-18"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card card-yellow">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Super Admins</h6>
+                                        <h3 class="m-b-0 f-w-700 text-white">@if (!string.IsNullOrEmpty(@ViewData["partnerCount"].ToString()))
+                                        {
+                                            <span>@ViewData["superAdminCount"]</span>
+                                            
+                                        }
+                                        else
+                                        {
+                                            <span>0</span>
+                                        }</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-eye text-c-yellow f-18"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- product profit end -->
+                    <!-- lattest update, new client start 
+                   
+                    <div class="col-xl-6 col-md-12">
+                        <div class="card new-cust-card">
+                            <div class="card-header">
+                                <h5>New Customers</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div class="align-middle m-b-35">
+                                    <img src="~/files/assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                    <div class="d-inline-block">
+                                        <a href="#!">
+                                            <h6>Alex Thompson</h6>
+                                        </a>
+                                        <p class="text-muted m-b-0">Cheers!</p>
+                                        <span class="status active"></span>
+                                    </div>
+                                </div>
+                                <div class="align-middle m-b-35">
+                                    <img src="~/files/assets/images/avatar-3.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                    <div class="d-inline-block">
+                                        <a href="#!">
+                                            <h6>John Doue</h6>
+                                        </a>
+                                        <p class="text-muted m-b-0">stay hungry stay foolish!</p>
+                                        <span class="status active"></span>
+                                    </div>
+                                </div>
+                                <div class="align-middle m-b-35">
+                                    <img src="~/files/assets/images/avatar-3.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                    <div class="d-inline-block">
+                                        <a href="#!">
+                                            <h6>Alex Thompson</h6>
+                                        </a>
+                                        <p class="text-muted m-b-0">Cheers!</p>
+                                        <span class="status deactive text-mute"><i class="far fa-clock m-r-10"></i>30 min ago</span>
+                                    </div>
+                                </div>
+                                <div class="align-middle m-b-0">
+                                    <img src="~/files/assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                    <div class="d-inline-block">
+                                        <a href="#!">
+                                            <h6>Alex Thompson</h6>
+                                        </a>
+                                        <p class="text-muted m-b-0">Cheers!</p>
+                                        <span class="status active"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Current Month Transaction</h5>
+                            </div>
+                            <div class="card-block">
+                                <div id="chart10"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @*<table class="table table-bordered table-responsive table-hover" style="display:none;">
+                        <thead>
+                            <tr>
+                                <th>Total Loan Amount </th>
+                                <th>Total Disbursement Amount </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int Totallmt = 0;}
+                            @{int Totaldmt = 0;}
+                            <tr>
+                                <td>@ViewBag.lastmonth</td>
+                                <td>@ViewBag.currentmonthdisbursed</td>
+                                                            </tr>
+                                @{
+                                    Totallmt = Totallmt + Convert.ToInt32(@ViewBag.lastmonth);
+                                    Totaldmt = Totaldmt + Convert.ToInt32(@ViewBag.currentmonthdisbursed);
+                                }
+
+                        </tbody>
+                        <tfoot>
+                            @if(Totallmt > 0 && Totaldmt > 0){
+                                int Totaldpmt = (Totaldmt * 100) / Totallmt;
+                                int Totalbpmt = 100 - Totaldpmt;
+                                <tr>
+                                    <td id="balanceamt">@Totalbpmt</td>
+                                    <td id="disbursementamt">@Totaldpmt</td>
+
+                                </tr>
+                            }
+                        </tfoot>
+                    </table>*@  
+
+
+
+                    <div class="col-xl-6 col-md-6">
+                        <div class="card">
+                            <div class="card-header" style="margin-bottom:12px;">
+                                <h5>Total Transaction</h5>
+                            </div><br />
+                            <div class="card prod-p-card card-red" style="margin-left:10px;margin-right:10px;">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Total Loan Amount</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white"> @ViewBag.loanTotalAmt /-</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-rupee text-c-red f-18"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card prod-p-card card-blue"  style="margin-left:10px;margin-right:10px;">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-30">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Total Disbursement Amount</h6>
+                                            <h3 class="m-b-0 f-w-700 text-white"> @ViewBag.loanTotalAmtDisbursed /-</h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-rupee text-c-blue f-18"></i>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- lattest update, new client end -->
+                </div>
+                <!-- [ page content ] end -->
+            </div>
+        </div>
+        <div id="styleSelector">
+        </div>
+    </div>
+</div>

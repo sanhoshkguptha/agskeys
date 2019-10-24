@@ -1,0 +1,123 @@
+﻿@model IEnumerable<agskeys.Models.loan_table>
+
+@{
+    ViewBag.Title = "salesloan";
+    Layout = "~/Views/Shared/_MobileManagerLayout.cshtml";
+}
+<div class="L1 navbar-header">
+    <!-- <img src="images/bg.jpg"> -->
+    <div class="container">
+        <div class="row" style="background: #fa4e5a;">
+            <div class="col-sm-12 col-xs-12 disp-name">
+                <span class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+                <div id="L1-body">
+                    <p class="col-sm-8 col-xs-8">Loan</p>
+                    <a class="col-sm-2 col-xs-2" onclick="goBack()" style="padding-top: 8px;"><i class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="L1 main-page" id="L-body" style="min-height: 100%;">
+    <div class="container">
+
+        <div class="row">
+            @{
+                int i = 0;
+            }
+            @foreach (var item in Model)
+            {
+                i++;
+                <div class="col-md-12" style="margin-top:20px;">
+                    <div class="card-block p-b-0">
+                        <div class="">
+                            <table class="table ">
+
+                                <tbody class="loan-table">
+                                    <tr style="background-image: linear-gradient(to right, #000, #fa4e5a);margin-top: 10px !important;color: white; font-size: 18px;font-weight: bold;">
+
+                                        <th >@i. @Html.DisplayFor(modelItem => item.loantype)</th>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.customerid)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Sanctioned Amount
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.loanamt)
+                                        </td>
+                                    </tr>
+                                    <tr style="background:#e4e0e0;">
+                                        <th>
+                                            Disbursed Amount
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.disbursementamt)
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Rate of Interset
+                                        </th>
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(item.rateofinterest))
+                                            {
+                                                @Html.DisplayFor(modelItem => item.rateofinterest)<span>%</span>
+                                            }
+                                            else
+                                            {
+                                                <span>0%</span>
+                                            }
+                                        </td>
+
+                                    </tr>
+                                    <tr style="background:#e4e0e0;">
+                                        <th>
+                                            Bank
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.bankid)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.loanstatus)
+                                        </td>
+                                    </tr>
+                                    <tr style="background:#e4e0e0;width:100%">
+                                        <td colspan="2">
+                                            <a class="btn btn-success" href="#" id="Track" data-toggle="tooltip"  data-html="true" title="Track" onclick="createModal('@Url.Action("Track", "MobileManagerLoan" , new {id=item.id })')"> <i class="fa fa-map-marker" style="color:#fff;"></i> </a>
+                                            <a class="btn btn-primary" href="#" id="details" data-toggle="tooltip"  data-html="true" title="Details" onclick="createModal('@Url.Action("Details", "MobileManagerLoan" , new {id=item.id })')"> <i class="fa fa-info-circle" style="color:#fff;"></i> </a>
+
+                                            @foreach (var loan in ViewBag.assigned_loan)
+                                            {
+                                                if (loan.loanid == item.id.ToString())
+                                                {
+                                                    <a class="btn btn-warning" href="#" id="Edit" data-toggle="tooltip"  data-html="true" title="Edit" onclick="createModal('@Url.Action("Edit", "MobileManagerLoan" , new {id=item.id })')"> <i class="fa fa-pencil" style="color:#fff;"></i> </a>
+                                                    <a class="btn btn-danger" href="#" id="Delete" data-toggle="tooltip"  data-html="true" title="Delete" onclick="createModal('@Url.Action("Delete", "MobileManagerLoan" , new {id=item.id })')"> <i class="fa fa-trash" style="color:#fff;"></i> </a>
+                                                }
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+
+    </div>
+</div>
+

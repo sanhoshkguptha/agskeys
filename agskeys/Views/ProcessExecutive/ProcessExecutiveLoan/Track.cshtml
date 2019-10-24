@@ -1,0 +1,316 @@
+﻿
+@model agskeys.Models.loan_track
+
+
+<style>
+    .card .card-header h6 {
+        margin-bottom: 0;
+        color: #333;
+        font-size: 15px;
+        font-weight: 700;
+        display: inline-block;
+        margin-right: 10px;
+        line-height: 1.1;
+        position: relative;
+    }
+
+    .tbl th i {
+        border-radius: 50%;
+        border: 2px solid #fff;
+        -webkit-box-shadow: 0 5px 10px 0 rgba(43,43,43,0.2);
+        box-shadow: 0 5px 10px 0 rgba(43,43,43,0.2);
+        padding: 10px;
+        color: white;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0rem;
+    }
+</style>
+<div class="modal-body">
+    <!-- [ breadcrumb ] start -->
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-user bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Loan Informations</h5>
+                        <span>Agskeys</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="close" style="font-size:30px" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- [ breadcrumb ] end -->
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-block " style="box-shadow: 0 0 55px 0 rgba(43,43,43,0.1),0 11px 6px -7px rgba(43,43,43,0.1);">
+
+                                <div class="row" style="padding-top: 20px;">
+                                    <div class="col-xl-6 col-md-6">
+                                        <div class="card latest-update-card">
+                                            <div class="card-header">
+                                                <h5>Loan Processing Stages</h5>
+
+                                            </div>
+                                            <div class="card-block">
+                                                <div class="latest-update-box">
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <img src="~/files/assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15 update-icon">
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6>File Collected.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <i class="feather icon-check f-w-600 bg-c-blue update-icon"></i>
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6> Login.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <i class="feather icon-briefcase bg-c-red update-icon"></i>
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6> Login Under Process.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <i class="feather icon-briefcase bg-c-yellow update-icon"></i>
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6> Sanction.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <i class="feather icon-briefcase bg-c-red update-icon"></i>
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6> Docket Login.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <i class="feather icon-briefcase bg-c-yellow update-icon"></i>
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6> Docket Login Under Process.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-t-20">
+                                                        <div class="col-auto text-right update-meta p-r-0">
+                                                            <i class="feather icon-check f-w-600 bg-c-green update-icon"></i>
+                                                        </div>
+                                                        <div class="col p-l-5">
+                                                            <a href="#!">
+                                                                <h6> Disbursement.</h6>
+                                                            </a>
+                                                            <p class="text-muted m-b-0">AGSKEYS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="card ">
+                                            <div class="card-header">
+                                                <h6>Loan Information</h6>
+                                            </div>
+                                            <div class="col-sm-12 col-md-12">
+                                                <table class="table  tbl">
+                                                    <tr>
+                                                        <th><i class="fa fa-user f-w-600 bg-c-red update-icon" aria-hidden="true"></i></th>
+                                                        <td>@ViewBag.name</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><i class="fa fa-envelope-o f-w-600 bg-c-green update-icon" aria-hidden="true"></i></th>
+                                                        <td>@ViewBag.email</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><i class="fa fa-phone f-w-600 bg-c-blue update-icon" aria-hidden="true"></i></th>
+                                                        <td>@ViewBag.phoneno</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><i class="fa fa-rupee f-w-600 bg-c-yellow update-icon" aria-hidden="true"></i></th>
+                                                        <td>@Html.DisplayFor(model => model.loan_details.FirstOrDefault().loanamt)<span style="color:#808080"> ( Sanctioned Amount ) </span></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th><i class="fa fa-rupee f-w-600 bg-c-green update-icon" aria-hidden="true"></i></th>
+                                                        <td>@Html.DisplayFor(model => model.loan_details.FirstOrDefault().disbursementamt)<span style="color:#808080"> ( Disbursement Amount ) </span></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    @*<div class="col-md-12">
+                                            <h5 class="col-md-12"><a href="#" id="show-more">CLICK HERE FOR MORE DETAILS</a></h5>
+                                        </div>*@
+
+
+
+
+                                    <div class="collapse loan col-md-12 personal-demo1">
+                                        <h4 style="margin-bottom:25px;">Employee Track Information</h4>
+                                        <table id="alt-pg-dt" class="table table-striped table-bordered nowrap" style="line-height:.8;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>
+                                                        Employee
+                                                    </th>
+                                                    <th>
+                                                        Track Time
+                                                    </th>
+                                                    <th>
+                                                        External Comment
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    int i = 0;
+                                                }
+                                                @foreach (var item in Model.employee_track)
+                                                {
+                                                    i++;
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.employeeid)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.tracktime)</td>
+                                                        <td>
+                                                            @if (!string.IsNullOrEmpty(item.externalcomment))
+                                                            {
+                                                                @Html.DisplayFor(modelItem => item.externalcomment)<br />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Not Updated</p><br />
+                                                            }
+                                                            @if (!string.IsNullOrEmpty(item.followupdate))
+                                                            {
+                                                                <p style="margin-top:8px;">@Html.DisplayFor(modelItem => item.followupdate)<br /><span style="margin-top:6px;">(Follow up Date)</span></p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p style="margin-top:1px;"><span style="margin-top:1px;">(Follow up Date)</span><br />Not Updated</p><br />
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <h5 style="margin-bottom:5px;"><u><b>Internal Comment</b></u></h5>
+                                                            @if (!string.IsNullOrEmpty(item.internalcomment))
+                                                            {
+                                                                @Html.DisplayFor(modelItem => item.internalcomment)
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Not Updated</p>
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>
+                                                        Employee
+                                                    </th>
+                                                    <th>
+                                                        Track Time
+                                                    </th>
+                                                    <th>
+                                                        External Comment
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button class="btn waves-effect waves-light hor-grd btn-grd-primary" id="show-more" style="padding: 8px 0px; float:right;">
+                                            <h5 class="col-md-12" style="font-size: 12px;"><i class="fa fa-angle-double-down"></i>SHOW MORE</h5>
+                                        </button>
+                                        <button class="btn waves-effect waves-light hor-grd btn-grd-primary" id="show-less" style="padding: 8px 0px;  float:right;">
+
+                                            <h5 class="col-md-12" style="font-size: 12px;"><i class="fa fa-angle-double-up"></i>SHOW LESS</h5>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $('#show-less').hide();
+    $('#show-more').click(function () {
+        $('#show-more').hide();
+        $('.personal-demo1').show(500);
+
+
+        $('#show-less').show();
+    });
+    $('#show-less').click(function () {
+        $('#show-less').hide();
+        $('.personal-demo1').hide(500);
+
+        $('#show-more').show();
+    });
+</script>
+
+

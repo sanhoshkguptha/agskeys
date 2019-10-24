@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="662299ccda434fdfa07c8b1970932434" Name="Diagram1">
+        <EntityTypeShape EntityType="agsfinancialsModel.admin_table" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="agsfinancialsModel.vendor_table" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="agsfinancialsModel.emp_category_table" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="agsfinancialsModel.proof_table" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="agsfinancialsModel.bank_table" Width="1.5" PointX="4.125" PointY="0.75" />
+        <EntityTypeShape EntityType="agsfinancialsModel.customer_profile_table" Width="1.5" PointX="4.25" PointY="2.875" />
+        <EntityTypeShape EntityType="agsfinancialsModel.loan_table" Width="1.5" PointX="6.125" PointY="3.125" />
+        <EntityTypeShape EntityType="agsfinancialsModel.loantype_table" Width="1.5" PointX="2.625" PointY="4.5" />
+        <EntityTypeShape EntityType="agsfinancialsModel.loan_track_table" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="agsfinancialsModel.vendor_track_table" Width="1.5" PointX="2.625" PointY="6.5" />
+        <EntityTypeShape EntityType="agsfinancialsModel.assigned_table" Width="1.5" PointX="4.375" PointY="6.625" />
+        <EntityTypeShape EntityType="agsfinancialsModel.external_comment_table" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="agsfinancialsModel.process_executive" Width="1.5" PointX="7.875" PointY="3" />
+        <EntityTypeShape EntityType="agsfinancialsModel.notification_table" Width="1.5" PointX="6.125" PointY="7.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,190 @@
+﻿@model IEnumerable<agskeys.Models.loan_table>
+
+@{
+    ViewBag.Title = "ProcessLoan";
+    Layout = "~/Views/Shared/_ProcessTeamLayout.cshtml";
+}
+
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-7">
+            <div class="page-header-title">
+                <i class="feather icon-users bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Loan Management</h5>
+                    <span>Agskeys</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="#"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#!">Loan Management</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="dt-responsive table-responsive">
+
+                            <p>
+                                <div class="row">
+                                    <div class="col-md-4">
+
+                                        <button onclick="createModal('@Url.Action("Create", "ProcessLoan")')" class="btn waves-effect waves-light hor-grd btn-grd-primary"><i class="fa fa-user-plus"></i>Create</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        @using (Html.BeginForm("processloan", "ProcessLoan", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" value="ongoing" id="ongoing" name="ongoing" />
+                                            @*<input type="submit" value="On Going" class="btn waves-effect waves-light hor-grd btn-grd-primary" />*@
+                                            <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary"><i class="fa fa-search"></i>On Going</button>
+
+                                        }
+                                    </div>
+                                    <div class="col-md-3">
+                                        @using (Html.BeginForm("processloan", "ProcessLoan", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" value="Partialydisbursed" id="Partialydisbursed" name="Partialydisbursed" />
+                                            @*<input type="submit" value="Partially Disbursed" class="btn waves-effect waves-light hor-grd btn-grd-primary" />*@
+                                            <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary"><i class="fa fa-search"></i>Partially Disbursed</button>
+
+                                        }
+                                    </div>
+                                    <div class="col-md-3">
+                                        @using (Html.BeginForm("processloan", "ProcessLoan", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" value="fullydisbursed" id="fullydisbursed" name="fullydisbursed" />
+                                            <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary"><i class="fa fa-search"></i>Fully Disbursed</button>
+                                        }
+                                    </div>
+                                </div>
+                            </p>
+                            <table id="alt-pg-dt" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>
+                                            Customer Name (ID)
+                                        </th>
+                                        <th>
+                                            Requested Amount
+                                        </th>
+                                        <th>
+                                            Loan Amount
+                                        </th>
+                                        <th>
+                                            Disbursement Amount
+                                        </th>
+                                        @*<th>
+                                            Created By
+                                        </th>*@
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        i++;
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.customerid)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.requestloanamt)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.loanamt)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.disbursementamt)
+                                            </td>
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.addedby)
+                                            </td>*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.loanstatus)
+                                            </td>
+                                            <td>
+
+
+                                                <a href="#" id="Track" onclick="createModal('@Url.Action("Track", "ProcessLoan" , new {id=item.id })')"><i class="icon feather icon-map-pin f-w-600 f-16 m-r-15" style="color:#fb8d00;"></i></a>
+
+
+                                                <a href="#" id="details" onclick="createModal('@Url.Action("Details", "ProcessLoan" , new {id=item.id })')"><i class="icon feather icon-info f-w-600 f-16 m-r-15" style="color:#0042fb;"></i></a>
+
+
+
+                                                @foreach (var loan in ViewBag.assigned_loan)
+                                                {
+                                                    if (loan.loanid == item.id.ToString())
+                                                    {
+
+                                                        <a href="#" id="edit" onclick="createModal('@Url.Action("Edit", "ProcessLoan" , new {id=item.id })')"><i class="icon feather icon-edit f-w-600 f-16 m-r-15 text-c-green"></i></a>
+                                                        <span style="color:green">Not Assigned</span>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <th>#</th>
+                                        <th>
+                                            Customer Name (ID)
+                                        </th>
+                                        <th>
+                                            Requested Amount
+                                        </th>
+                                        <th>
+                                            Loan Amount
+                                        </th>
+                                        <th>
+                                            Disbursement Amount
+                                        </th>
+                                        @*<th>
+                                            Created By
+                                        </th>*@
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="styleSelector">
+    </div>
+</div>
+

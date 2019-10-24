@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+	<head>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AGS</title>
+		<!-- <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">	
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">			
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>	   -->
+		
+		    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min1.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudfla	re.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+
+
+    <!-- Custom Theme Style -->
+    <link href="build/css/customeLogin.css" rel="stylesheet">
+	  	</head>
+	<body>
+	<div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" style="display:flow-root;" onclick="closeNav()"><i class="fa fa-angle-left" style="font-size:22px; padding-right: 10px;"></i> back</a>
+	  <a href="loan.html"><i class="fa fa-bank"></i><span>LOAN</span></a>
+	   <a href="request.html"><i class="fa fa-tasks"></i><span> REQUEST</span></a>
+	  <a href="refer.html"><i class="fa fa-copy"></i><span>REFER</span></a>
+	  <a class="active" href="enquiry.html"><i class="fa fa-wpforms"></i><span>ENQUIRY</span></a>
+	  <a href="support.html"><i class="fa fa-globe"></i><span>SUPPORT</span></a>
+	</div>
+
+	
+		<div class="L1 navbar-header">
+			<!-- <img src="images/bg.jpg"> -->
+			<div class="container">
+				<div class="row" style="background: #fa4e5a;">
+					
+					<div class="col-sm-12 col-xs-12 disp-name">
+						<span  class="col-sm-2 col-xs-2 " style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+					
+						<div id="L1-body">
+							<p class="col-sm-8 col-xs-8 "  >Enquiry</p>
+							<a class="col-sm-2 col-xs-2 " onclick="goBack()" style="
+		padding-top: 8px;
+	"><i class="fa fa-angle-left"></i></a>
+						</div>
+					</div>
+				</div>	
+						
+			</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		</div>
+		
+		<div class="L1 main-page"   id="L-body" style="height: 100vh;">
+			<div class="container" >
+				<div class="row " id="sec">
+					
+						<!-- profile-->
+						<!-- <div class="col-sm-12 col-xs-12 disp-name">
+							 <img src="images/newyork.jpg" class="img-circle" alt="Cinque Terre"  align="middle" width="104px" height="104px" style="margin-top: 20px;"> 
+						</div>
+						<div class="col-sm-12 col-xs-12 disp-name">
+								<p>Customer Name</p>
+						</div> -->
+						<!-- profile end-->
+						
+						
+					
+				</div>
+				<div class="row">
+					<div class="card" >
+					  <div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="card-link">Card link</a>
+						<a href="#" class="card-link">Another link</a>
+					  </div>
+					</div>
+				</div>
+				
+				
+				
+			</div>
+			<footer>
+				
+					<div class="row disp-name11" id="sec1">
+					
+				
+						<a href="customer.html" class="col-sm-4 col-xs-4"><i class="fa fa-home"></i><br> HOME </a>
+						
+						<a href="profile.html" class="col-sm-4 col-xs-4 " ><i class="fa fa-user"></i> <br> PROFILE </a>
+						
+						<a href="index.html" class="col-sm-4 col-xs-4 " ><i class="fa fa-sign-out"></i> <br>LOGOUT </a>
+							
+							
+					</div>
+				
+			</footer>
+			
+		</div>
+
+	
+	<script>
+		function openNav()
+		{
+		  document.getElementById("mySidenav").style.width = "40%";
+		
+		}
+
+		function closeNav()
+		{
+		  document.getElementById("mySidenav").style.width = "0";
+		 
+		}
+		var box =document.getElementById("L-body")
+		var box1 =document.getElementById("L1-body")
+		box.onclick = function(){
+		
+			document.getElementById("mySidenav").style.width = "0";
+		}
+		box1.onclick = function(){
+		
+			document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
+	<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+	
+		  <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
+		
+	</body>
+</html>
